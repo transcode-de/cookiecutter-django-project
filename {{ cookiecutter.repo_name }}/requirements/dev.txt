@@ -1,0 +1,8 @@
+-r ./base.txt
+Werkzeug==0.9.4
+bumpversion==0.4.1
+django-debug-toolbar==1.2.1
+django-devserver==0.8.0
+ipdb==0.8
+ipython==2.0.0
+sqlparse==0.1.11

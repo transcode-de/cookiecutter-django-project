@@ -1,0 +1,10 @@
+[
+{
+    "pk": 1,
+    "model": "sites.site",
+    "fields": {
+        "domain": "{{ cookiecutter.repo_name }}.com",
+        "name": "{{ cookiecutter.project_name }}"
+    }
+}
+]
