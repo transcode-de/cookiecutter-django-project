@@ -1,8 +1,8 @@
 {
-    "project_name": "project_name is the title of the project.",
-    "repo_name":"repo_name is used for describing the directory structure.",
+    "project_name": "My Project",
+    "repo_name":"my_project",
     "author_name": "transcode",
-    "email": "Email address for errors.",
+    "email": "noreply@example.com",
     "description": "A short description of the project.",
     "year": "2014",
     "version": "0.1.0"

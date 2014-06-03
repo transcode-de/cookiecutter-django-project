@@ -2,6 +2,8 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
 ***********************************************************
 
+{{ cookiecutter.description }}
+
 Contents:
 
 .. toctree::

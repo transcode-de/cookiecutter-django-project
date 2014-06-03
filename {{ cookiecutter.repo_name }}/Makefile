@@ -9,9 +9,9 @@ else
 PYTHON_PATH = $(shell pwd)/$(PROJECT)
 endif
 
-.PHONY: help install install-dev install-test install-osx info \
-			isort isort-check test coverage coverage-html migrate \
-			runserver shell clean clean-coverage clean-pyc
+.PHONY: help install install-dev install-test install-osx create-db \
+			info isort isort-check test coverage coverage-html migrate \
+			runserver shell docs clean clean-coverage clean-pyc
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -19,6 +19,7 @@ help:
 	@echo "  install-dev        to install/update all packages required for development (includes production)"
 	@echo "  install-test       to install/update all packages required for testing (includes production)"
 	@echo "  install-osx        to install/update the packages required for OS X"
+	@echo "  create-db          to create a new PostgreSQL user and database"
 	@echo "  isort              to run isort on the whole project"
 	@echo "  isort-check        to check the whole project with isort"
 	@echo "  test               to run the tests with pytest"
@@ -27,6 +28,7 @@ help:
 	@echo "  migrate            to synchronize Django's database state with the current set of models and migrations"
 	@echo "  runserver          to start Django's development Web server"
 	@echo "  shell              to start a Python interactive interpreter"
+	@echo "  docs               to build and open the project documentation as HTML"
 	@echo "  clean              to remove all artifacts"
 	@echo "  clean-coverage     to remove coverage artifacts"
 	@echo "  clean-pyc          to remove Python file artifacts"
@@ -42,6 +44,10 @@ install-test:
 
 install-osx:
 	pip install -U --no-deps -r requirements/osx.txt
+
+create-db:
+	createuser -d -e -P {{ cookiecutter.repo_name }}
+	createdb -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
 
 info:
 	@echo "Testing on $(WHERE)"
@@ -63,13 +69,17 @@ coverage-html: coverage
 	@python -c "import os, webbrowser; webbrowser.open('file://%s/htmlcov/index.html' % os.getcwd())"
 
 migrate:
-	envdir envs/$(ENV) ./manage.py migrate
+	envdir envs/$(ENV) $(PROJECT)/manage.py migrate
 
 runserver:
-	envdir envs/$(ENV) ./manage.py runserver $(PORT)
+	envdir envs/$(ENV) $(PROJECT)/manage.py runserver $(PORT)
 
 shell:
-	envdir envs/$(ENV) ./manage.py shell
+	envdir envs/$(ENV) $(PROJECT)/manage.py shell
+
+docs:
+	$(MAKE) -C docs clean html
+	@python -c "import os, webbrowser; webbrowser.open('file://%s/docs/_build/html/index.html' % os.getcwd())"
 
 clean: clean-coverage clean-pyc
 

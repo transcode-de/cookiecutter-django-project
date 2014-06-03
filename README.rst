@@ -70,13 +70,17 @@ Next Steps
 ==========
 
 Change into your newly created project directory and execute the
-following three commands to get started.
+following commands to get started.
 
 Install the packages for development::
 
     $ make install-dev
 
-Then create the Django app(s) you want for the project::
+Then create the new PostgreSQL user and database::
+
+    $ make create-db
+
+The next step is to create the Django app(s) you want for the project::
 
     $ django-admin startapp <projectname>/<appname>
 

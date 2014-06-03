@@ -2,8 +2,6 @@ import os
 
 from configurations import Configuration, values
 
-from chakapro.logging_filters import skip_suspicious_operation
-
 
 class BaseDir(object):
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -15,7 +13,7 @@ class Email(object):
     EMAIL_HOST = values.Value('localhost')
     EMAIL_PORT = values.IntegerValue(25)  # Alternate TLS port is 587
     EMAIL_USE_TLS = values.BooleanValue(True)
-    EMAIL_HOST_USER = values.Value('noreply@{{ cookiecutter.repo_name }}.com')
+    EMAIL_HOST_USER = values.Value('{{ cookiecutter.email }}')
     EMAIL_HOST_PASSWORD = values.SecretValue()
 
 
@@ -143,9 +141,9 @@ class Common(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     )
 
-    ROOT_URLCONF = '{{ cookiecutter.repo_name }}.config.urls'
+    ROOT_URLCONF = 'config.urls'
 
-    WSGI_APPLICATION = '{{ cookiecutter.repo_name }}.config.wsgi.application'
+    WSGI_APPLICATION = 'config.wsgi.application'
 
     TEMPLATE_DIRS = (
         os.path.join(BaseDir.BASE_DIR, 'templates'),
@@ -170,13 +168,15 @@ class Common(Configuration):
 
     TEMPLATE_CONTEXT_PROCESSORS = Configuration.TEMPLATE_CONTEXT_PROCESSORS + (
         'django.core.context_processors.request',
-        '{{ cookiecutter.repo_name }}.config.context_processors.django_version',
+        'config.context_processors.django_version',
     )
+
+    CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
     GRAPPELLI_ADMIN_TITLE = '{{ cookiecutter.project_name }} Admin'
 
     EMAIL_SUBJECT_PREFIX = '[{{ cookiecutter.project_name }}]'
-    DEFAULT_FROM_EMAIL = 'noreply@{{ cookiecutter.repo_name }}.com'
+    DEFAULT_FROM_EMAIL = '{{ cookiecutter.email }}'
     SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 

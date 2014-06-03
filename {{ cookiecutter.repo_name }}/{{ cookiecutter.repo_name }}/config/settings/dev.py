@@ -19,10 +19,8 @@ class Dev(PostgreSQLDatabases, Common):
     def INTERNAL_IPS(self):
         return (self.get_addr(),)
 
-    INSTALLED_APPS = Common.INSTALLED_APPS + (
-        'debug_toolbar',
-        'devserver',
-    )
+    # devserver must be ahead of django.contrib.staticfiles
+    INSTALLED_APPS = ('devserver',) + Common.INSTALLED_APPS + ('debug_toolbar',)
 
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -31,6 +29,8 @@ class Dev(PostgreSQLDatabases, Common):
         return self.get_addr()
 
     DEVSERVER_ARGS = values.ListValue([])
+
+    DEVSERVER_TRUNCATE_SQL = values.BooleanValue(True)
 
     DEVSERVER_MODULES = (
         'devserver.modules.sql.SQLRealTimeModule',
