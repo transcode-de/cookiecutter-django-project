@@ -15,7 +15,8 @@ Then create the new PostgreSQL user and database::
 
 The next step is to create the Django app(s) you want for the project::
 
-    $ django-admin startapp <projectname>/<appname>
+    $ mkdir -p {{ cookiecutter.repo_name }}/<appname>
+    $ django-admin startapp <appname> {{ cookiecutter.repo_name }}/<appname>
 
 Now create the database tables::
 

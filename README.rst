@@ -82,7 +82,8 @@ Then create the new PostgreSQL user and database::
 
 The next step is to create the Django app(s) you want for the project::
 
-    $ django-admin startapp <projectname>/<appname>
+    $ mkdir -p <projectname>/<appname>
+    $ django-admin startapp <appname> <projectname>/<appname>
 
 Now create the database tables::
 
