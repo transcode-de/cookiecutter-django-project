@@ -60,7 +60,7 @@ After that change to the directory where you want to create a your new
 Django project in. Then set up the project using this cookiecutter
 template like so::
 
-    $ cookiecutter http://bitbucket.org/transcode/transcode-django-project
+    $ cookiecutter https://bitbucket.org/transcode/transcode-django-project
 
 You have to answer a few questions to configure the project. The
 defaults are good for transcode projects - surely you want to override
