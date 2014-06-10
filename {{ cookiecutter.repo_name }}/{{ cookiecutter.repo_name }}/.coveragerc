@@ -1,0 +1,4 @@
+[run]
+branch = True
+source = .
+omit = *test*, *migrations*, manage.py, {{ cookiecutter.repo_name }}/config/settings*, *urls.py, {{ cookiecutter.repo_name }}/config/*wsgi*.py
