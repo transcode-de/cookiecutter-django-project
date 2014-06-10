@@ -3,6 +3,7 @@
     "repo_name":"my_project",
     "author_name": "transcode",
     "email": "noreply@example.com",
+    "domain": "www.example.com",
     "description": "A short description of the project.",
     "year": "2014",
     "version": "0.1.0"
