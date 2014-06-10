@@ -90,13 +90,9 @@ class Common(Configuration):
 
     USE_I18N = True
 
-    USE_L10N = False
+    USE_L10N = True
 
     USE_TZ = True
-
-    DATETIME_FORMAT = 'F j, Y H:i'
-    DATE_FORMAT = 'F j, Y'
-    TIME_FORMAT = 'H:i'
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/var/www/example.com/media/"
