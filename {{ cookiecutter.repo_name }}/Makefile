@@ -84,7 +84,7 @@ docs:
 clean: clean-coverage clean-pyc
 
 clean-coverage:
-	rm -f .coverage
+	coverage erase
 	rm -fr htmlcov
 
 clean-pyc:
