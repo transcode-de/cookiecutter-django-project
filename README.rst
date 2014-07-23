@@ -36,15 +36,16 @@ Development Tools
 * `IPython <http://ipython.org/>`_
 * `ipdb <https://github.com/gotcha/ipdb>`_
 * `bumpversion <https://github.com/peritus/bumpversion>`_
+* `pg_activity <https://github.com/julmon/pg_activity>`_
 
 Testing
 -------
-
 * `pytest <http://pytest.org/>`_
 * `pytest-cov <https://github.com/schlamar/pytest-cov>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-flakes <https://github.com/fschulze/pytest-flakes>`_
 * `pytest-pep8 <http://bitbucket.org/hpk42/pytest-pep8/>`_
+* `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
 * `isort <https://github.com/timothycrosley/isort>`_
 * `tox <http://tox.testrun.org/>`_
