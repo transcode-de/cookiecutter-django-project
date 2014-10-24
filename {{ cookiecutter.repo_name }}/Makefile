@@ -18,7 +18,7 @@ help:
 	@echo "  install            to install/update all packages required for production"
 	@echo "  install-dev        to install/update all packages required for development (includes production)"
 	@echo "  install-test       to install/update all packages required for testing (includes production)"
-	@echo "  install-osx        to install/update the packages required for OS X"
+	@echo "  install-osx        to install/update the packages only required for OS X"
 	@echo "  create-db          to create a new PostgreSQL user and database"
 	@echo "  isort              to run isort on the whole project"
 	@echo "  isort-check        to check the whole project with isort"
