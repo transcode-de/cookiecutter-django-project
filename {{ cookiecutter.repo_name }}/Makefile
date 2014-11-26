@@ -11,7 +11,8 @@ endif
 
 .PHONY: help install install-dev install-test install-osx create-db \
 			info isort isort-check test coverage coverage-html migrate \
-			runserver shell docs clean clean-coverage clean-pyc
+			runserver shell createsuperuser docs clean clean-coverage \
+			clean-pyc
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -28,6 +29,7 @@ help:
 	@echo "  migrate            to synchronize Django's database state with the current set of models and migrations"
 	@echo "  runserver          to start Django's development Web server"
 	@echo "  shell              to start a Python interactive interpreter"
+	@echo "  createsuperuser    to create a new django superuser"
 	@echo "  docs               to build and open the project documentation as HTML"
 	@echo "  clean              to remove all artifacts"
 	@echo "  clean-coverage     to remove coverage artifacts"
@@ -76,6 +78,9 @@ runserver:
 
 shell:
 	envdir envs/$(ENV) $(PROJECT)/manage.py shell
+
+createsuperuser:
+	envdir envs/$(ENV) $(PROJECT)/manage.py createsuperuser
 
 docs:
 	$(MAKE) -C docs clean html
