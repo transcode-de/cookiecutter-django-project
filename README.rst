@@ -94,10 +94,6 @@ And start the development webserver::
 
     $ make runserver
 
-If you need a superuser, you simply can creat one::
-
-    $ make createsuperuser
-
 To see the other targets available in the ``Makefile`` simply run::
 
     $ make
