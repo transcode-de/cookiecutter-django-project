@@ -9,9 +9,20 @@ else
 PYTHON_PATH = $(shell pwd)/$(PROJECT)
 endif
 
+define CMDS
+ifeq ($(1), runserver)
+	envdir envs/$(ENV) $(PROJECT)/manage.py$(1)$(PORT)
+else
+$(1):
+	envdir envs/$(ENV) $(PROJECT)/manage.py$(1)
+endif
+endef
+
+$(eval $(call CMDS, $(cmd)))
+
 .PHONY: help install install-dev install-test install-osx create-db \
 			info isort isort-check test coverage coverage-html migrate \
-			runserver shell docs clean clean-coverage clean-pyc
+			runserver shell docs clean clean-coverage clean-pyc cmd
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -32,6 +43,9 @@ help:
 	@echo "  clean              to remove all artifacts"
 	@echo "  clean-coverage     to remove coverage artifacts"
 	@echo "  clean-pyc          to remove Python file artifacts"
+
+cmd:
+	@echo "  cmd                Please use 'make cmd=<manage.py command>'"
 
 install:
 	pip install -U --no-deps -r requirements/prod.txt
