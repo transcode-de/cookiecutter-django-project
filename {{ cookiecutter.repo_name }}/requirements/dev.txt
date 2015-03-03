@@ -1,9 +1,0 @@
--r ./base.txt
-Werkzeug==0.9.6
-bumpversion==0.5.1
-django-debug-toolbar==1.2.2
-# This fork fixes a bug in django-devserver if used with Django 1.7
-git+https://github.com/nealtodd/django-devserver.git@ae936de7f8a79f38be8e338da6743e9a75a3dd8c#egg=django-devserver
-ipdb==0.8
-ipython==2.3.1
-sqlparse==0.1.14

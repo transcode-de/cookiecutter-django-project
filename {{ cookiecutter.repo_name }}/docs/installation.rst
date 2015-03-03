@@ -7,7 +7,7 @@ Development Setup
 
 Install the packages for development::
 
-    $ make install-dev
+    $ make develop
 
 Then create the new PostgreSQL user and database::
 
