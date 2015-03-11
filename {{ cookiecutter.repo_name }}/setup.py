@@ -57,12 +57,12 @@ tests_requires = [
 ]
 
 setup(
-    name={{ cookiecutter.repo_name }},
-    version={{ cookiecutter.version }},
-    description={{ cookiecutter.description }},
+    name='{{ cookiecutter.pkg_name }}',
+    version='{{ cookiecutter.version }}',
+    description='{{ cookiecutter.description }}',
     long_description=read('README.rst'),
     author='transcode',
-    author_email='team@transcode.de',
+    author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
     install_requires=requires,
@@ -71,12 +71,14 @@ setup(
         'docs': docs_requires,
         'tests': tests_requires,
     },
-    license='BSD',
+    license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
+        {% if cookiecutter.license|lower == 'bsd' %}
         'License :: OSI Approved :: BSD License',
+        {% endif %}
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
