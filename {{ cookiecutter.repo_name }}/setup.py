@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from codecs import open
 import os
-from sys import platform
+import sys
 
 from setuptools import setup, find_packages
 
@@ -37,7 +37,7 @@ dev_requires = [
     'sqlparse==0.1.14',
 ]
 
-if platform == 'darwin':
+if sys.platform == 'darwin':
     dev_requires.append('gnureadline==6.3.3')
 
 docs_requires = [
