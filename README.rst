@@ -2,7 +2,7 @@
 cookiecutter-django-project
 ***************************
 
-.. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=Ready 
+.. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=issues%20ready 
  :target: https://waffle.io/transcode-de/cookiecutter-django-project 
  :alt: 'Stories in Ready'
 
