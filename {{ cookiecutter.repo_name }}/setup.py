@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from codecs import open
 import os
 import sys
-
+from codecs import open
 from setuptools import setup, find_packages
 
 
@@ -30,6 +29,7 @@ dev_requires = [
     'Werkzeug==0.9.6',
     'bumpversion==0.5.1',
     'django-debug-toolbar==1.2.2',
+    'flake8==2.3.0',
     # This version should be used with Django>=1.7
     'https://github.com/nealtodd/django-devserver/archive/master.zip',
     'ipdb==0.8',
@@ -45,13 +45,11 @@ docs_requires = [
 ]
 
 tests_requires = [
+    'coverage==3.7.1',
     'factory_boy==2.4.1',
     'freezegun==0.2.8',
     'isort==3.9.4',
-    'pytest-cov==1.8.1',
     'pytest-django==2.7.0',
-    'pytest-flakes==0.2',
-    'pytest-pep8==1.0.6',
     'pytest==2.6.4',
     'tox==1.9.0',
 ]
