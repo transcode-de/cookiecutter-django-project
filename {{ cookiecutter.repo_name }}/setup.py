@@ -74,9 +74,9 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        {% if cookiecutter.license|lower == 'bsd' %}
+        {% if cookiecutter.license|lower == 'bsd' -%}
         'License :: OSI Approved :: BSD License',
-        {% endif %}
+        {%- endif %}
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
