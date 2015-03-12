@@ -2,6 +2,10 @@
 cookiecutter-django-project
 ***************************
 
+.. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=issues%20ready 
+ :target: https://waffle.io/transcode-de/cookiecutter-django-project 
+ :alt: 'Stories in Ready'
+
 A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we
 use for Django projects at `transcode <http://www.transcode.de/>`_.
 
