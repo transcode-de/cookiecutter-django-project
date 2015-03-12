@@ -39,7 +39,7 @@ Development Tools
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
 * `django-devserver <http://github.com/dcramer/django-devserver>`_
 
-    * `sqlparse <https://github.com/andialbrecht/sqlparse>`_`
+    * `sqlparse <https://github.com/andialbrecht/sqlparse>`_
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
 
 * `IPython <http://ipython.org/>`_
