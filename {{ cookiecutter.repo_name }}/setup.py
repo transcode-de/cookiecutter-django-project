@@ -22,8 +22,6 @@ requires = [
     'envdir==0.7',
     'psycopg2==2.5.4',
     'pytz==2014.10',
-    'six==1.9.0',
-    'wheel==0.24.0',
 ]
 
 docs_requires = [
