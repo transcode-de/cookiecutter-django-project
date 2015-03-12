@@ -21,6 +21,7 @@ Batteries included
 
 * `django-braces <https://github.com/brack3t/django-braces/>`_
 * `django-crispy-forms <https://github.com/maraujop/django-crispy-forms>`_
+* `django-grappelli <https://github.com/sehmaschine/django-grappelli>`_
 * `psycopg2 <http://initd.org/psycopg/>`_
 * `Sphinx <http://sphinx-doc.org/>`_
 
@@ -34,24 +35,29 @@ Configuration
 Development Tools
 -----------------
 
+* `bumpversion <https://github.com/peritus/bumpversion>`_
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
 * `django-devserver <http://github.com/dcramer/django-devserver>`_
-* `Werkzeug <http://werkzeug.pocoo.org/>`_
+
+    * `sqlparse <https://github.com/andialbrecht/sqlparse>`_`
+    * `Werkzeug <http://werkzeug.pocoo.org/>`_
+
 * `IPython <http://ipython.org/>`_
 * `ipdb <https://github.com/gotcha/ipdb>`_
-* `bumpversion <https://github.com/peritus/bumpversion>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_
 
 Testing
 -------
-* `pytest <http://pytest.org/>`_
-* `pytest-cov <https://github.com/schlamar/pytest-cov>`_
-* `pytest-django <http://pytest-django.readthedocs.org/>`_
-* `pytest-flakes <https://github.com/fschulze/pytest-flakes>`_
-* `pytest-pep8 <http://bitbucket.org/hpk42/pytest-pep8/>`_
+
+* `check-manifest <https://github.com/mgedmin/check-manifest>`_
+* `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
+* `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
 * `isort <https://github.com/timothycrosley/isort>`_
+* `pytest <http://pytest.org/>`_
+* `pytest-django <http://pytest-django.readthedocs.org/>`_
+* `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
 
 Creating a new Project
