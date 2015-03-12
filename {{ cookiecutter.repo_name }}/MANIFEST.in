@@ -1,0 +1,13 @@
+include *.rst
+include *.txt
+include .coveragerc
+include LICENSE
+include Makefile
+include tox.ini
+exclude .bumpversion.cfg
+
+recursive-include tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *.rst conf.py Makefile make.bat

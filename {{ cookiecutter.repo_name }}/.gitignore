@@ -1,0 +1,49 @@
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# envdirs
+envs/*
+!envs/dev
+
+# Django
+media
+static_root
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.cache
+.coverage
+.tox
+htmlcov
+
+# Translations
+*.mo
+
+# Complexity
+output/*.html
+output/*/index.html
+
+# Bower
+bower_components
+
+# Sphinx
+docs/_build

@@ -1,111 +1,128 @@
-PROJECT = {{ cookiecutter.repo_name }}
-PORT ?= 8000
+BUILDDIR ?= _build
 ENV ?= dev
-
-WHERE = $(shell uname -a)
-ifeq ($(CI),true)
-PYTHON_PATH = $(BUILD_DIR)/$(PROJECT)
-else
-PYTHON_PATH = $(shell pwd)/$(PROJECT)
-endif
+PORT ?= 8000
+SPHINXOPTS =
 
 define CMDS
 ifeq ($(1), runserver)
-	envdir envs/$(ENV) $(PROJECT)/manage.py$(1)$(PORT)
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py$(1)$(PORT)
 else
 $(1):
-	envdir envs/$(ENV) $(PROJECT)/manage.py$(1)
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py$(1)
 endif
 endef
 
 $(eval $(call CMDS, $(cmd)))
 
-.PHONY: help install install-dev install-test install-osx create-db \
-			info isort isort-check test coverage coverage-html migrate \
-			runserver shell docs clean clean-coverage clean-pyc cmd
+.PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
+	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-all \
+	test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
-	@echo "  install                   to install/update all packages required for production"
-	@echo "  install-dev               to install/update all packages required for development (includes production)"
-	@echo "  install-test              to install/update all packages required for testing (includes production)"
-	@echo "  install-osx               to install/update the packages only required for OS X"
-	@echo "  create-db                 to create a new PostgreSQL user and database"
-	@echo "  isort                     to run isort on the whole project"
-	@echo "  isort-check               to check the whole project with isort"
-	@echo "  test                      to run the tests with pytest"
-	@echo "  coverage                  to generate a coverage report"
-	@echo "  coverage-html             to generate and open a HTML coverage report"
-	@echo "  migrate                   to synchronize Django's database state with the current set of models and migrations"
-	@echo "  runserver                 to start Django's development Web server"
-	@echo "  shell                     to start a Python interactive interpreter"
-	@echo "  docs                      to build and open the project documentation as HTML"
-	@echo "  clean                     to remove all artifacts"
-	@echo "  clean-coverage            to remove coverage artifacts"
-	@echo "  clean-pyc                 to remove Python file artifacts"
-	@echo "  cmd=<manage.py command>   to use any other manage.py command"
+	@echo "  clean                    to remove all build, test, coverage and Python artifacts"
+	@echo "  clean-build              to remove build artifacts"
+	@echo "  clean-docs               to remove documentation artifacts"
+	@echo "  clean-pyc                to remove Python file artifacts"
+	@echo "  clean-test               to remove test and coverage artifacts"
+	@echo "  cmd=<manage.py command>  to use any other manage.py command"
+	@echo "  coverage                 to generate a coverage report with the default Python"
+	@echo "  coverage-html            to generate and open a HTML coverage report with the default Python"
+	@echo "  create-db                to create a new PostgreSQL user and database"
+	@echo "  develop                  to install (or update) all packages required for development"
+	@echo "  dist                     to package a release"
+	@echo "  docs                     to build the project documentation as HTML"
+	@echo "  isort                    to run isort on the whole project"
+	@echo "  migrate                  to synchronize Django's database state with the current set of models and migrations"
+	@echo "  open-docs                to open the project documentation in the default browser"
+	@echo "  runserver                to start Django's development Web server"
+	@echo "  serve-docs               to serve the project documentation in the default browser"
+	@echo "  shell                    to start a Python interactive interpreter"
+	@echo "  test                     to run unit tests quickly with the default Python"
+	@echo "  test-all                 to run unit tests on every Python version with tox"
+	@echo "  test-upload              to upload a release to test PyPI using twine"
+	@echo "  upload                   to upload a release using twine"
 
-cmd:
-	@echo "  cmd                Please use 'make cmd=<manage.py command>'"
 
-install:
-	pip install -U --no-deps -r requirements/prod.txt
+clean: clean-build clean-docs clean-pyc clean-test
 
-install-dev:
-	pip install -U --no-deps -r requirements/dev.txt
+clean-build:
+	rm -fr build/
+	rm -fr dist/
+	rm -fr *.egg-info
 
-install-test:
-	pip install -U --no-deps -r requirements/test.txt
-
-install-osx:
-	pip install -U --no-deps -r requirements/osx.txt
-
-create-db:
-	createuser -d -e -P {{ cookiecutter.repo_name }}
-	createdb -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
-
-info:
-	@echo "Testing on $(WHERE)"
-
-isort:
-	isort --recursive $(PROJECT)
-
-isort-check:
-	isort --check-only --recursive $(PROJECT)
-
-test: info
-	PYTHONPATH=$(PYTHON_PATH) py.test --pep8 --flakes $(TEST_ARGS) $(PROJECT)
-
-coverage: info
-	PYTHONPATH=$(PYTHON_PATH) py.test --pep8 --flakes $(TEST_ARGS) --cov-config=$(PROJECT)/.coveragerc --cov $(PROJECT) $(PROJECT)
-
-coverage-html: coverage
-	coverage html
-	@python -c "import os, webbrowser; webbrowser.open('file://%s/htmlcov/index.html' % os.getcwd())"
-
-migrate:
-	envdir envs/$(ENV) $(PROJECT)/manage.py migrate
-
-runserver:
-	envdir envs/$(ENV) $(PROJECT)/manage.py runserver $(PORT)
-
-shell:
-	envdir envs/$(ENV) $(PROJECT)/manage.py shell
-
-docs:
-	$(MAKE) -C docs clean html
-	@python -c "import os, webbrowser; webbrowser.open('file://%s/docs/_build/html/index.html' % os.getcwd())"
-
-clean: clean-coverage clean-pyc
-
-clean-coverage:
-	coverage erase
-	rm -fr htmlcov
+clean-docs:
+	$(MAKE) -C docs clean BUILDDIR=$(BUILDDIR)
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
 
-clean-release:
-	rm -fr release
+clean-test:
+	rm -fr .cache/
+	rm -fr .tox/
+	coverage erase
+	rm -fr htmlcov/
+
+cmd:
+	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
+
+coverage:
+	coverage run -m pytest tests/
+	coverage report -m
+
+coverage-html: coverage
+	coverage html
+	python -c "import os, webbrowser; webbrowser.open('file://{}/htmlcov/index.html'.format(os.getcwd()))"
+
+create-db:
+	createuser -d -e -P {{ cookiecutter.repo_name }}
+	createdb -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
+
+develop:
+	pip install -U pip setuptools wheel
+	pip install -U -r requirements.txt
+	pip install -U -e .[docs]
+	pip install -U -e .[tests]
+
+dist: clean
+	python setup.py sdist bdist_wheel
+	ls -l dist
+
+docs:
+	$(MAKE) -C docs html BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
+
+isort:
+	isort --recursive setup.py {{ cookiecutter.pkg_name }} tests/
+
+migrate:
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate
+
+open-docs:
+	python -c "import os, webbrowser; webbrowser.open('file://{}/docs/{}/html/index.html'.format(os.getcwd(), '$(BUILDDIR)'))"
+
+runserver:
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py runserver $(PORT)
+
+serve-docs:
+	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
+	cd docs/$(BUILDDIR)/html; python -m SimpleHTTPServer $(PORT)
+
+shell:
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py shell
+
+test:
+	py.test $(TEST_ARGS) tests/
+
+test-all:
+	tox
+
+test-upload:
+	twine upload -r test -s dist/*
+	python -c "import webbrowser; webbrowser.open('https://testpypi.python.org/pypi/{{ cookiecutter.pkg_name }}')"
+
+upload:
+	twine upload -s dist/*
+	python -c "import webbrowser; webbrowser.open('https://pypi.python.org/pypi/{{ cookiecutter.pkg_name }}')"
