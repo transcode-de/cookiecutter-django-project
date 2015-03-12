@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-import sys
 from codecs import open
 
 from setuptools import find_packages, setup
@@ -34,6 +33,7 @@ tests_requires = [
     'freezegun==0.2.8',
     'isort==3.9.4',
     'pytest-django==2.7.0',
+    'pytest-pythonpath==0.6',
     'pytest==2.6.4',
     'tox==1.9.0',
 ]

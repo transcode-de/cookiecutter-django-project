@@ -5,18 +5,18 @@ SPHINXOPTS =
 
 define CMDS
 ifeq ($(1), runserver)
-	envdir envs/$(ENV) {{ cookiecutter.repo_name }}/manage.py$(1)$(PORT)
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py$(1)$(PORT)
 else
 $(1):
-	envdir envs/$(ENV) {{ cookiecutter.repo_name }}/manage.py$(1)
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py$(1)
 endif
 endef
 
 $(eval $(call CMDS, $(cmd)))
 
 .PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-upload \
-	upload
+	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-all \
+	test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -39,6 +39,7 @@ help:
 	@echo "  serve-docs               to serve the project documentation in the default browser"
 	@echo "  shell                    to start a Python interactive interpreter"
 	@echo "  test                     to run unit tests quickly with the default Python"
+	@echo "  test-all                 to run unit tests on every Python version with tox"
 	@echo "  test-upload              to upload a release to test PyPI using twine"
 	@echo "  upload                   to upload a release using twine"
 
@@ -94,26 +95,29 @@ docs:
 	$(MAKE) -C docs html BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
 
 isort:
-	isort --recursive setup.py {{ cookiecutter.repo_name }} tests
+	isort --recursive setup.py {{ cookiecutter.pkg_name }} tests/
 
 migrate:
-	envdir envs/$(ENV) {{ cookiecutter.repo_name }}/manage.py migrate
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate
 
 open-docs:
 	python -c "import os, webbrowser; webbrowser.open('file://{}/docs/{}/html/index.html'.format(os.getcwd(), '$(BUILDDIR)'))"
 
 runserver:
-	envdir envs/$(ENV) {{ cookiecutter.repo_name }}/manage.py runserver $(PORT)
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py runserver $(PORT)
 
 serve-docs:
 	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
 	cd docs/$(BUILDDIR)/html; python -m SimpleHTTPServer $(PORT)
 
 shell:
-	envdir envs/$(ENV) {{ cookiecutter.repo_name }}/manage.py shell
+	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py shell
 
 test:
-	py.test $(TEST_ARGS) {{ cookiecutter.repo_name }}
+	py.test $(TEST_ARGS) tests/
+
+test-all:
+	tox
 
 test-upload:
 	twine upload -r test -s dist/*
