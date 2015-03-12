@@ -78,7 +78,7 @@ create-db:
 
 develop:
 	pip install --upgrade pip setuptools wheel
-	pip install -e .[dev]
+	pip install -r requirements.txt
 	pip install -e .[docs]
 	pip install -e .[tests]
 

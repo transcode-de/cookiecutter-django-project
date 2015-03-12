@@ -25,21 +25,6 @@ requires = [
     'wheel==0.24.0',
 ]
 
-dev_requires = [
-    'Werkzeug==0.9.6',
-    'bumpversion==0.5.1',
-    'django-debug-toolbar==1.2.2',
-    'flake8==2.3.0',
-    # This version should be used with Django>=1.7
-    'https://github.com/nealtodd/django-devserver/archive/master.zip',
-    'ipdb==0.8',
-    'ipython==2.3.1',
-    'sqlparse==0.1.14',
-]
-
-if sys.platform == 'darwin':
-    dev_requires.append('gnureadline==6.3.3')
-
 docs_requires = [
     'Sphinx==1.2.2',
 ]
@@ -65,7 +50,6 @@ setup(
     include_package_data=True,
     install_requires=requires,
     extras_require={
-        'dev': dev_requires,
         'docs': docs_requires,
         'tests': tests_requires,
     },
