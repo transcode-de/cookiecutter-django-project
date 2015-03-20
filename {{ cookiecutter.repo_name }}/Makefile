@@ -71,7 +71,7 @@ cmd:
 
 coverage:
 	coverage run -m pytest tests/
-	coverage report -m
+	coverage report
 
 coverage-html: coverage
 	coverage html
