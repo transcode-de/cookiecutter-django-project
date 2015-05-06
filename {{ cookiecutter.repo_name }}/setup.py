@@ -18,7 +18,6 @@ requires = [
     'Django>1.8',
     'dj-database-url==0.3.0',
     'django-braces==1.4.0',
-    'django-configurations==0.8',
     'django-crispy-forms==1.4.0',
     'django-grappelli==2.6.3',
     'envdir==0.7',
