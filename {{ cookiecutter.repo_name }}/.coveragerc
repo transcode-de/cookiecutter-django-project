@@ -8,3 +8,6 @@ omit =
     {{ cookiecutter.pkg_name }}/config/*wsgi*.py
     {{ cookiecutter.pkg_name }}/config/settings*
     {{ cookiecutter.pkg_name }}/manage.py
+
+[report]
+show_missing = True
