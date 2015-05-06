@@ -20,7 +20,8 @@ class Dev(PostgreSQLDatabases, Common):
         return (self.get_addr(),)
 
     # devserver must be ahead of django.contrib.staticfiles
-    INSTALLED_APPS = ('devserver',) + Common.INSTALLED_APPS + ('debug_toolbar',)
+    #INSTALLED_APPS = ('devserver',) + Common.INSTALLED_APPS + ('debug_toolbar',)
+    INSTALLED_APPS = Common.INSTALLED_APPS + ('debug_toolbar',)
 
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
