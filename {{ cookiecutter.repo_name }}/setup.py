@@ -15,7 +15,7 @@ def read(*paths):
         return f.read()
 
 requires = [
-    'Django==1.7.6',
+    'Django>1.8',
     'dj-database-url==0.3.0',
     'django-braces==1.4.0',
     'django-configurations==0.8',
