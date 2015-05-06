@@ -6,8 +6,10 @@ include Makefile
 include tox.ini
 exclude .bumpversion.cfg
 
+recursive-include {{ cookiecutter.pkg_name }} *
 recursive-include tests *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
 recursive-include docs *.rst conf.py Makefile make.bat
+prune envs
