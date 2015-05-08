@@ -10,7 +10,7 @@ class PostgreSQLDatabases(object):
             'USER': '{{ cookiecutter.repo_name }}',
             'PASSWORD': '{{ cookiecutter.repo_name }}',
             'HOST': 'localhost',
-            'CONN_MAX_AGE': None,
+            'CONN_MAX_AGE': 600,
         },
     })
 
