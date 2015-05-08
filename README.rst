@@ -43,7 +43,7 @@ Development Tools
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
 
 * `IPython <http://ipython.org/>`_
-* `pdb++ https://bitbucket.org/antocuni/pdb/overview`_
+* `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_
 
 Testing
