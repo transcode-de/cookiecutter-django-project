@@ -24,7 +24,7 @@ requires = [
 ]
 
 docs_requires = [
-    'Sphinx==1.2.2',
+    'Sphinx==1.3.1',
 ]
 
 tests_requires = [
