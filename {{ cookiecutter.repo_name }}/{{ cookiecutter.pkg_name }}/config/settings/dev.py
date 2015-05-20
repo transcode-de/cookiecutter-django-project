@@ -40,5 +40,5 @@ class Dev(PostgreSQLDatabases, Common):
     )
 
     # Beware before activating this! Grappelli has problems with admin
-    # inlines and TEMPLATE_STRING_IF_INVALID.
-    TEMPLATE_STRING_IF_INVALID = values.Value('')
+    # inlines and the template backend option 'string_if_invalid'.
+    Common.TEMPLATES[0]['OPTIONS']['string_if_invalid'] = 'INVALID EXPRESSION %s'
