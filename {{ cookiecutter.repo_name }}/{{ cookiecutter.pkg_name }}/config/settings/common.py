@@ -21,7 +21,6 @@ class Common(Configuration):
     SECRET_KEY = '(_j4e0=pbe(b+b1$^ch_48be0=gszglcgfzz^dy=(gnx=@m*b7'
 
     DEBUG = values.BooleanValue(False)
-    TEMPLATE_DEBUG = values.BooleanValue(DEBUG)
 
     ADMINS = (
         ('transcode', 'traceback@transcode.de'),
@@ -135,15 +134,30 @@ class Common(Configuration):
         'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'django.middleware.security.SecurityMiddleware',
     )
 
     ROOT_URLCONF = 'config.urls'
 
     WSGI_APPLICATION = 'config.wsgi.application'
 
-    TEMPLATE_DIRS = (
-        os.path.join(BaseDir.BASE_DIR, 'templates'),
-    )
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'), ],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                    'config.context_processors.django_version',
+                ],
+                'debug': values.BooleanValue(DEBUG),
+            },
+        },
+    ]
 
     FIXTURE_DIRS = (
         os.path.join(BaseDir.BASE_DIR, 'fixtures'),
@@ -160,11 +174,6 @@ class Common(Configuration):
         'django.contrib.admin',
         'django.contrib.admindocs',
         'crispy_forms',
-    )
-
-    TEMPLATE_CONTEXT_PROCESSORS = Configuration.TEMPLATE_CONTEXT_PROCESSORS + (
-        'django.core.context_processors.request',
-        'config.context_processors.django_version',
     )
 
     CRISPY_TEMPLATE_PACK = 'bootstrap3'
