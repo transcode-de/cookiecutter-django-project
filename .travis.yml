@@ -1,0 +1,9 @@
+language: python
+install:
+  - pip install -r requirements.txt
+script:
+  - tox
+sudo: false
+notfications:
+  slack:
+    secure: ic70R8NJdSRtGvpOS2xJzegUTD/vVzgvz47rGmBCt2d0pW01IUA1pZ/KGAMj17F0dqhuv/RKlXex9TagHzf0AyEWOiFj5cr/zJyWKxtXsMhzJnpGwltMoE44lHfNW79xHXyEaRDRPdo1NwVvtDG4KYAocseMHMhCPhuB1TJohdo=
