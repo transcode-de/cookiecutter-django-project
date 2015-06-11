@@ -6,6 +6,9 @@ from codecs import open
 from setuptools import find_packages, setup
 
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 def read(*paths):
     """Build a file path from *paths and return the contents."""
     with open(os.path.join(*paths), 'r', 'utf-8') as f:
@@ -42,7 +45,7 @@ setup(
     name='{{ cookiecutter.pkg_name }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.description }}',
-    long_description=read('README.rst'),
+    long_description=read(os.path.join(BASE_DIR, 'README.rst')),
     author='transcode',
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
