@@ -23,7 +23,7 @@ class Common(Configuration):
     DEBUG = values.BooleanValue(False)
 
     ADMINS = (
-        ('transcode', 'traceback@transcode.de'),
+        ('{{ cookiecutter.author_name }}', '{{ cookiecutter.email }}'),
     )
     MANAGERS = ADMINS
 
