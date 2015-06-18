@@ -23,7 +23,7 @@ class Common(Configuration):
     DEBUG = values.BooleanValue(False)
 
     ADMINS = values.TupleValue(
-        ('{{ cookiecutter.author_name }}', '{{ cookiecutter.email }}'),
+        ('{{ cookiecutter.author_name }}', '{{ cookiecutter.error_email }}'),
     )
     MANAGERS = ADMINS
 
