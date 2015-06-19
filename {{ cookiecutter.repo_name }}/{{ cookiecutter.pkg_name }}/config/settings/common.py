@@ -154,7 +154,7 @@ class Common(Configuration):
                     'django.contrib.messages.context_processors.messages',
                     'config.context_processors.django_version',
                 ],
-                'debug': values.BooleanValue(DEBUG),
+                'debug': values.Value('DEBUG', environ_name='TEMPLATE_DEBUG'),
             },
         },
     ]
