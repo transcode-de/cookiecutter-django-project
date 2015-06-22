@@ -37,7 +37,3 @@ class Dev(PostgreSQLDatabases, Common):
         'devserver.modules.sql.SQLSummaryModule',
         'devserver.modules.profile.ProfileSummaryModule',
     )
-
-    # Beware before activating this! Grappelli has problems with admin
-    # inlines and the template backend option 'string_if_invalid'.
-    Common.TEMPLATES[0]['OPTIONS']['string_if_invalid'] = 'INVALID EXPRESSION %s'
