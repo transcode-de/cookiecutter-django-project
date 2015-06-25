@@ -37,7 +37,7 @@ tests_requires = [
     'pytest-django==2.7.0',
     'pytest-pythonpath==0.6',
     'pytest==2.6.4',
-    'tox==1.9.0',
+    'tox==2.1.0',
 ]
 
 setup(
