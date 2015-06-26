@@ -14,7 +14,7 @@ Report Bugs
 -----------
 
 Report bugs at the
-`GitHub issue tracker <https://github.com/transcode-de/{{ cookiecutter.repo_name }}/issues>`_.
+`GitHub issue tracker <https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are reporting a bug, please include:
 
@@ -45,7 +45,7 @@ Submit Feedback
 ---------------
 
 The best way to send feedback is to file an issue at the
-`GitHub issue tracker <https://github.com/transcode-de/{{ cookiecutter.repo_name }}/issues>`_.
+`GitHub issue tracker <https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are proposing a feature:
 
@@ -99,7 +99,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in `README.rst`.
 3. The pull request should work for Python 2.7 and 3.4. Check
-   `Travis CI <https://travis-ci.org/transcode-de/{{ cookiecutter.repo_name }}/pull_requests>`_
+   `Travis CI <https://travis-ci.org/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/pull_requests>`_
    and make sure that the tests pass for all supported Python versions.
 
 Tips
