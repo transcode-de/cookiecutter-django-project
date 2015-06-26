@@ -14,7 +14,7 @@ Report Bugs
 -----------
 
 Report bugs at the
-`GitHub issue tracker <https://github.com/transcode-de/durga/issues>`_.
+`GitHub issue tracker <https://github.com/transcode-de/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are reporting a bug, please include:
 
@@ -37,15 +37,15 @@ Look through the GitHub issues for features. Anything tagged with
 Write Documentation
 -------------------
 
-Durga could always use more documentation, whether as part of the
-official Durga docs, in docstrings, or even on the web in blog posts,
+{{ cookiecutter.repo_name }} could always use more documentation, whether as part of the
+official {{ cookiecutter.repo_name }} docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback
 ---------------
 
 The best way to send feedback is to file an issue at the
-`GitHub issue tracker <https://github.com/transcode-de/durga/issues>`_.
+`GitHub issue tracker <https://github.com/transcode-de/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ============
 
-Ready to contribute? Here's how to set up `durga` for local development.
+Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for local development.
 
-1. Fork the `durga` repo on GitHub.
+1. Fork the `{{ cookiecutter.repo_name }}` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/durga.git
+    $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv durga
-    $ cd durga
+    $ mkvirtualenv {{ cookiecutter.repo_name }}
+    $ cd {{ cookiecutter.repo_name }}
     $ make develop
 
 4. Create a branch for local development::
@@ -99,7 +99,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in `README.rst`.
 3. The pull request should work for Python 2.7 and 3.4. Check
-   `Travis CI <https://travis-ci.org/transcode-de/durga/pull_requests>`_
+   `Travis CI <https://travis-ci.org/transcode-de/{{ cookiecutter.repo_name }}/pull_requests>`_
    and make sure that the tests pass for all supported Python versions.
 
 Tips
