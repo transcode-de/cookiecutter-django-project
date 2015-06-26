@@ -36,6 +36,7 @@ tests_requires = [
     'freezegun==0.2.8',
     'isort==3.9.4',
     'pytest-django==2.7.0',
+    'pytest-factoryboy==1.1.2',
     'pytest-pythonpath==0.6',
     'pytest==2.6.4',
     'tox==1.9.0',

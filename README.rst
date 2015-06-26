@@ -57,6 +57,7 @@ Testing
 * `isort <https://github.com/timothycrosley/isort>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
+* `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
 * `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
 
