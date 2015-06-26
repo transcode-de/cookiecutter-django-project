@@ -43,7 +43,7 @@ setup(
     name='{{ cookiecutter.pkg_name }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.description }}',
-    long_description=read(os.path.join(BASE_DIR, 'README.rst')),
+    long_description=read(BASE_DIR, 'README.rst'),
     author='transcode',
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
