@@ -5,7 +5,6 @@ from codecs import open
 
 from setuptools import find_packages, setup
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
