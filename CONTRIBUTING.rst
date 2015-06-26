@@ -76,10 +76,9 @@ Ready to contribute? Here's how to set up `cookiecutter-django-project` for loca
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
+5. When you're done making changes, check that your changes can build with cookiecutter and the created project tempate is working with Python 2 and Python 3::
 
-    $ make test
-    $ make test-all
+    $ tox
 
 6. Commit your changes and push your branch to GitHub::
 
