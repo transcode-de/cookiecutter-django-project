@@ -68,7 +68,7 @@ Ready to contribute? Here's how to set up `cookiecutter-django-project` for loca
 
     $ mkvirtualenv cookiecutter-django-project
     $ cd cookiecutter-django-project
-    $ make develop
+    $ pip install -r requirements
 
 4. Create a branch for local development::
 
