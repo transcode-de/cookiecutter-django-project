@@ -21,6 +21,5 @@
     -   id: flake8
     -   id: name-tests-test
         args: ['--django']
-    -   id: pretty-format-json
     -   id: requirements-txt-fixer
     -   id: trailing-whitespace
