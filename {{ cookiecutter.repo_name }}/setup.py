@@ -32,7 +32,7 @@ setup(
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.description }}',
     long_description=read(BASE_DIR, 'README.rst'),
-    author='transcode',
+    author='{{ cookiecutter.author_name }}',
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
