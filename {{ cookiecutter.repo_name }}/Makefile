@@ -83,9 +83,8 @@ create-db:
 
 develop:
 	pip install -U pip setuptools wheel
-	pip install -U -r requirements.txt
-	pip install -U -e .[docs]
-	pip install -U -e .[tests]
+	pip install -U -e .
+	pip install -U -r requirements/dev.txt
 
 dist: clean
 	python setup.py sdist bdist_wheel

@@ -1,0 +1,4 @@
+# This file is used only for forks of packages required in setup.py.
+
+# Fork of django-configurations with support for Django 1.8
+https://github.com/bsvetchine/django-configurations/archive/f514eac8afd971b9e94782c20693c59c3b46275a.zip

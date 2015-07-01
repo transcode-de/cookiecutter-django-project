@@ -17,27 +17,14 @@ requires = [
     'Django==1.8.2',
     'dj-database-url==0.3.0',
     'django-braces==1.4.0',
+    # django-configurations 0.8 does not work with Django 1.8. A fork has been
+    # added to requirements/forks.txt that supports Django 1.8.
+    # 'django-configurations==0.8',
     'django-crispy-forms==1.4.0',
     'django-grappelli==2.6.3',
     'envdir==0.7',
     'psycopg2==2.5.4',
     'pytz==2014.10',
-]
-
-docs_requires = [
-    'Sphinx==1.2.2',
-]
-
-tests_requires = [
-    'coverage==3.7.1',
-    'factory_boy==2.4.1',
-    'freezegun==0.2.8',
-    'isort==3.9.4',
-    'pytest-django==2.7.0',
-    'pytest-factoryboy==1.1.2',
-    'pytest-pythonpath==0.6',
-    'pytest==2.6.4',
-    'tox==2.1.0',
 ]
 
 setup(
@@ -50,10 +37,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=requires,
-    extras_require={
-        'docs': docs_requires,
-        'tests': tests_requires,
-    },
     license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[
