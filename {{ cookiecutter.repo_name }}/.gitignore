@@ -1,4 +1,7 @@
 *.py[cod]
+*~
+.python-version
+__pycache__
 
 # C extensions
 *.so
@@ -23,11 +26,15 @@ envs/*
 !envs/dev
 
 # Django
+CACHE/
+compressor_cache/
 media
 static_root
 
-# Installer logs
+# Logs
 pip-log.txt
+*.log
+*.log.*
 
 # Unit test / coverage reports
 .cache
