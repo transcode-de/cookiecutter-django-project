@@ -70,7 +70,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 coverage:
-	coverage run -m pytest tests/
+	coverage run -m pytest $(TEST_ARGS) tests/
 	coverage report
 
 coverage-html: coverage
