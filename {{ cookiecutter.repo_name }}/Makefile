@@ -94,7 +94,7 @@ docs:
 	$(MAKE) -C docs html BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
 
 isort:
-	isort --recursive setup.py {{ cookiecutter.pkg_name }} tests/
+	isort --recursive setup.py {{ cookiecutter.pkg_name }}/ tests/
 
 migrate:
 	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate
