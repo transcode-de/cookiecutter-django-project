@@ -2,8 +2,8 @@
 Contributing
 ************
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+Contributions are welcome, and they are greatly appreciated! Every little bit
+helps, and credit will always be given.
 
 You can contribute in many ways:
 
@@ -13,8 +13,8 @@ Types of Contributions
 Report Bugs
 -----------
 
-Report bugs at the
-`GitHub issue tracker <https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
+Report bugs at the `GitHub issue tracker
+<https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are reporting a bug, please include:
 
@@ -25,27 +25,27 @@ If you are reporting a bug, please include:
 Fix Bugs
 --------
 
-Look through the GitHub issues for bugs. Anything tagged with "bug"
-is open to whoever wants to implement it.
+Look through the GitHub issues for bugs. Anything tagged with "bug" is open to
+whoever wants to implement it.
 
 Implement Features
 ------------------
 
-Look through the GitHub issues for features. Anything tagged with
-"feature" is open to whoever wants to implement it.
+Look through the GitHub issues for features. Anything tagged with "feature" is
+open to whoever wants to implement it.
 
 Write Documentation
 -------------------
 
-{{ cookiecutter.repo_name }} could always use more documentation, whether as part of the
-official {{ cookiecutter.repo_name }} docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+{{ cookiecutter.repo_name }} could always use more documentation, whether as
+part of the official {{ cookiecutter.repo_name }} docs, in docstrings, or even
+on the web in blog posts, articles, and such.
 
 Submit Feedback
 ---------------
 
-The best way to send feedback is to file an issue at the
-`GitHub issue tracker <https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
+The best way to send feedback is to file an issue at the `GitHub issue tracker
+<https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/issues>`_.
 
 If you are proposing a feature:
 
@@ -57,35 +57,47 @@ If you are proposing a feature:
 Get Started!
 ============
 
-Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for local development.
+Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for
+local development.
 
 1. Fork the `{{ cookiecutter.repo_name }}` repo on GitHub.
-2. Clone your fork locally::
+2. Clone your fork locally:
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
+   ::
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+       $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
 
-    $ mkvirtualenv {{ cookiecutter.repo_name }}
-    $ cd {{ cookiecutter.repo_name }}
-    $ make develop
+3. Install your local copy into a virtualenv. Assuming you have
+   virtualenvwrapper installed, this is how you set up your fork for local
+   development:
 
-4. Create a branch for local development::
+   ::
 
-    $ git checkout -b name-of-your-bugfix-or-feature
+       $ mkvirtualenv {{ cookiecutter.repo_name }}
+       $ cd {{ cookiecutter.repo_name }}
+       $ make develop
+
+4. Create a branch for local development:
+
+   ::
+
+       $ git checkout -b name-of-your-bugfix-or-feature
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
+5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox:
 
-    $ make test
-    $ make test-all
+   ::
 
-6. Commit your changes and push your branch to GitHub::
+       $ make test-all
 
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
-    $ git push origin name-of-your-bugfix-or-feature
+6. Commit your changes and push your branch to GitHub:
+
+   ::
+
+       $ git add .
+       $ git commit -m "Your detailed description of your changes."
+       $ git push origin name-of-your-bugfix-or-feature
 
 7. Submit a pull request through the GitHub website.
 
@@ -105,6 +117,8 @@ Before you submit a pull request, check that it meets these guidelines:
 Tips
 ====
 
-To run a subset of tests::
+To run a subset of tests:
+
+::
 
     $ make test TEST_ARGS='-k <EXPRESSION>'
