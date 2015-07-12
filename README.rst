@@ -12,6 +12,8 @@ use for Django projects at `transcode <http://www.transcode.de/>`_.
 Batteries included
 ==================
 
+.. class:: compact
+
 * `Django 1.8 <https://djangoproject.com>`_
 * `Initializr 4.0 <http://www.initializr.com/>`_ HTML5 template
 
@@ -28,12 +30,16 @@ Batteries included
 Configuration
 -------------
 
+.. class:: compact
+
 * `django-configurations <http://django-configurations.readthedocs.org/>`_
 * `dj-database-url <https://github.com/kennethreitz/dj-database-url>`_
 * `envdir <http://envdir.readthedocs.org/>`_
 
 Development Tools
 -----------------
+
+.. class:: compact
 
 * `bumpversion <https://github.com/peritus/bumpversion>`_
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
@@ -48,6 +54,8 @@ Development Tools
 
 Testing
 -------
+
+.. class:: compact
 
 * `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
