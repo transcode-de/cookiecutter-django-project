@@ -12,7 +12,9 @@ use for Django projects at `transcode <http://www.transcode.de/>`_.
 Batteries included
 ==================
 
-* `Django 1.7 <https://djangoproject.com>`_
+.. class:: compact
+
+* `Django 1.8 <https://djangoproject.com>`_
 * `Initializr 4.0 <http://www.initializr.com/>`_ HTML5 template
 
     * `Bootstrap 3.1.1 <http://getbootstrap.com/>`_
@@ -28,12 +30,16 @@ Batteries included
 Configuration
 -------------
 
+.. class:: compact
+
 * `django-configurations <http://django-configurations.readthedocs.org/>`_
 * `dj-database-url <https://github.com/kennethreitz/dj-database-url>`_
 * `envdir <http://envdir.readthedocs.org/>`_
 
 Development Tools
 -----------------
+
+.. class:: compact
 
 * `bumpversion <https://github.com/peritus/bumpversion>`_
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
@@ -49,6 +55,8 @@ Development Tools
 Testing
 -------
 
+.. class:: compact
+
 * `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
@@ -57,6 +65,7 @@ Testing
 * `isort <https://github.com/timothycrosley/isort>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
+* `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
 * `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
 

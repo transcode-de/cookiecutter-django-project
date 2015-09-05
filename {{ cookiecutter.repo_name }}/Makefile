@@ -70,7 +70,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 coverage:
-	coverage run -m pytest tests/
+	coverage run -m pytest $(TEST_ARGS) tests/
 	coverage report
 
 coverage-html: coverage
@@ -83,9 +83,8 @@ create-db:
 
 develop:
 	pip install -U pip setuptools wheel
-	pip install -U -r requirements.txt
-	pip install -U -e .[docs]
-	pip install -U -e .[tests]
+	pip install -U -e .
+	pip install -U -r requirements/dev.txt
 
 dist: clean
 	python setup.py sdist bdist_wheel
@@ -95,7 +94,7 @@ docs:
 	$(MAKE) -C docs html BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
 
 isort:
-	isort --recursive setup.py {{ cookiecutter.pkg_name }} tests/
+	isort --recursive setup.py {{ cookiecutter.pkg_name }}/ tests/
 
 migrate:
 	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate

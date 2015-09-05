@@ -1,15 +1,18 @@
 include *.rst
-include *.txt
 include .coveragerc
 include LICENSE
 include Makefile
 include tox.ini
 exclude .bumpversion.cfg
 
+recursive-include docs *.rst conf.py Makefile make.bat
 recursive-include {{ cookiecutter.pkg_name }} *
+recursive-include requirements *.txt
 recursive-include tests *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
-recursive-include docs *.rst conf.py Makefile make.bat
 prune envs
+prune {{ cookiecutter.pkg_name }}/.cache
+prune {{ cookiecutter.pkg_name }}/media
+prune {{ cookiecutter.pkg_name }}/static_root

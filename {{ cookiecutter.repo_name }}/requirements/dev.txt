@@ -1,0 +1,17 @@
+# This file is used for all packages required for local development.
+
+-r ./docs.txt
+-r ./test.txt
+
+Werkzeug==0.9.6
+bumpversion==0.5.1
+django-debug-toolbar==1.3
+flake8==2.3.0
+ipython==2.3.1
+# Newer versions of pdbpp do not work with Python 3
+# See https://bitbucket.org/antocuni/pdb/issue/45/fails-to-install-on-os-x-1010-python-343
+pdbpp==0.8.1  # rq.filter: !=0.8.2
+sqlparse==0.1.14
+
+# Fork of django-devserver with support for Django 1.8 and Python 3
+https://github.com/transcode-de/django-devserver/archive/8ec8efbb7b738508f489d3ddca54c40f510928b6.zip
