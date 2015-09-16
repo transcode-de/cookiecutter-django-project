@@ -14,9 +14,9 @@ endef
 
 $(eval $(call CMDS, $(cmd)))
 
-.PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-all \
-	test-upload upload
+.PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd compile-requirements \
+	coverage coverage-html create-db develop docs isort migrate open-docs serve-docs runserver \
+	shell test test-all test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -26,6 +26,7 @@ help:
 	@echo "  clean-pyc                to remove Python file artifacts"
 	@echo "  clean-test               to remove test and coverage artifacts"
 	@echo "  cmd=<manage.py command>  to use any other manage.py command"
+	@echo "  compile-requirements     to update requirements"
 	@echo "  coverage                 to generate a coverage report with the default Python"
 	@echo "  coverage-html            to generate and open a HTML coverage report with the default Python"
 	@echo "  create-db                to create a new PostgreSQL user and database"
@@ -68,6 +69,13 @@ clean-test:
 
 cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
+
+compile-requirements:
+	pip install git+https://github.com/nvie/pip-tools.git@future
+	pip-compile requirements/dev.in
+	pip-compile requirements/docs.in
+	pip-compile requirements/forks.in
+	pip-compile requirements/test.in
 
 coverage:
 	coverage run -m pytest $(TEST_ARGS) tests/
