@@ -1,7 +1,7 @@
 # This file is used for local testing with and without tox as well as for
 # testing on continuous integration servers.
 
--r ./forks.txt
+-r ./forks.pip
 
 coverage==3.7.1
 factory_boy==2.4.1

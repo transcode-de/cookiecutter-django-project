@@ -1,7 +1,7 @@
 # This file is used for all packages required for local development.
 
--r ./docs.txt
--r ./test.txt
+-r ./docs.pip
+-r ./test.pip
 
 Werkzeug==0.9.6
 bumpversion==0.5.1
