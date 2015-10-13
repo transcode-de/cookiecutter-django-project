@@ -137,9 +137,9 @@ class Common(Configuration):
         'django.middleware.security.SecurityMiddleware',
     )
 
-    ROOT_URLCONF = 'config.urls'
+    ROOT_URLCONF = '{{ cookiecutter.pkg_name }}.config.urls'
 
-    WSGI_APPLICATION = 'config.wsgi.application'
+    WSGI_APPLICATION = '{{ cookiecutter.pkg_name }}.config.wsgi.application'
 
     TEMPLATES = [
         {
@@ -152,7 +152,7 @@ class Common(Configuration):
                     'django.template.context_processors.request',
                     'django.contrib.auth.context_processors.auth',
                     'django.contrib.messages.context_processors.messages',
-                    'config.context_processors.django_version',
+                    '{{ cookiecutter.pkg_name }}.config.context_processors.django_version',
                 ],
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
