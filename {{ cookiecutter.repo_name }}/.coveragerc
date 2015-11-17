@@ -8,6 +8,8 @@ omit =
     {{ cookiecutter.pkg_name }}/config/*wsgi*.py
     {{ cookiecutter.pkg_name }}/config/settings*
     {{ cookiecutter.pkg_name }}/manage.py
+plugins =
+    django_coverage_plugin
 
 [report]
 show_missing = True
