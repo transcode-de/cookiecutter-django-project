@@ -42,6 +42,7 @@ Development Tools
 .. class:: compact
 
 * `bumpversion <https://github.com/peritus/bumpversion>`_
+* `bottle <https://github.com/bottlepy/bottle>`_
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
 * `django-devserver <http://github.com/dcramer/django-devserver>`_
 
