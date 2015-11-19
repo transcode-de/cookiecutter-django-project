@@ -36,6 +36,7 @@ setup(
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
+    scripts=['manage.py'],
     install_requires=requires,
     license='{{ cookiecutter.license }}',
     zip_safe=False,
