@@ -152,7 +152,7 @@ class Common(Configuration):
                     'django.template.context_processors.request',
                     'django.contrib.auth.context_processors.auth',
                     'django.contrib.messages.context_processors.messages',
-                    '{{ cookiecutter.pkg_name }}.config.context_processors.django_version',
+                    '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
