@@ -11,4 +11,5 @@ isort==3.9.4
 pytest-django==2.7.0
 pytest-factoryboy==1.1.2
 pytest==2.6.4
+tox-pyenv==1.0.2
 tox==2.1.0

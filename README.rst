@@ -75,6 +75,7 @@ Testing
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
 * `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
+* `tox-pyenv <https://github.com/samstav/tox-pyenv>`_
 
 Creating a new Project
 ======================
