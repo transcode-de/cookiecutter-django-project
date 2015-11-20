@@ -55,10 +55,10 @@ clean-docs:
 	$(MAKE) -C docs clean BUILDDIR=$(BUILDDIR)
 
 clean-pyc:
-	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name '*.pyc' -delete
+	find . -name '*.pyo' -delete
+	find . -name '*~' -delete
+	find . -name '__pycache__' -delete
 
 clean-test:
 	rm -fr .cache/
