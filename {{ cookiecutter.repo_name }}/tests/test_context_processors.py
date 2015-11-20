@@ -1,6 +1,6 @@
 import django
 
-from config import context_processors
+from {{ cookiecutter.pkg_name }} import context_processors
 
 
 def test_django_version():

@@ -48,6 +48,7 @@ Development Tools
     * `sqlparse <https://github.com/andialbrecht/sqlparse>`_
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
 
+* `Glances <https://github.com/nicolargo/glances>`_
 * `IPython <http://ipython.org/>`_
 * `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_

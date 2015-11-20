@@ -97,20 +97,20 @@ isort:
 	isort --recursive setup.py {{ cookiecutter.pkg_name }}/ tests/
 
 migrate:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate
+	envdir envs/$(ENV) python manage.py migrate
 
 open-docs:
 	python -c "import os, webbrowser; webbrowser.open('file://{}/docs/{}/html/index.html'.format(os.getcwd(), '$(BUILDDIR)'))"
 
 runserver:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py runserver $(PORT)
+	envdir envs/$(ENV) python manage.py runserver $(PORT)
 
 serve-docs:
 	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
 	cd docs/$(BUILDDIR)/html; python -m SimpleHTTPServer $(PORT)
 
 shell:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py shell
+	envdir envs/$(ENV) python manage.py shell
 
 test:
 	py.test $(TEST_ARGS) tests/
