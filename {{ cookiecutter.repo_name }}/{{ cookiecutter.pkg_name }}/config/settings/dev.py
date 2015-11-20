@@ -37,7 +37,3 @@ class Dev(PostgreSQLDatabases, Common):
         'devserver.modules.sql.SQLSummaryModule',
         'devserver.modules.profile.ProfileSummaryModule',
     )
-
-    # Beware before activating this! Grappelli has problems with admin
-    # inlines and TEMPLATE_STRING_IF_INVALID.
-    TEMPLATE_STRING_IF_INVALID = values.Value('')

@@ -20,7 +20,8 @@ $(eval $(call CMDS, $(cmd)))
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
-	@echo "  clean                    to remove all build, test, coverage and Python artifacts"
+	@echo "  clean                    to remove all build, test, coverage and Python artifacts (does not remove backups)"
+	@echo "  clean-backups            to remove backup files created by editors and Git"
 	@echo "  clean-build              to remove build artifacts"
 	@echo "  clean-docs               to remove documentation artifacts"
 	@echo "  clean-pyc                to remove Python file artifacts"
@@ -46,6 +47,10 @@ help:
 
 clean: clean-build clean-docs clean-pyc clean-test
 
+clean-backups:
+	find . -name '*~' -delete
+	find . -name '*.orig' -delete
+
 clean-build:
 	rm -fr build/
 	rm -fr dist/
@@ -55,10 +60,9 @@ clean-docs:
 	$(MAKE) -C docs clean BUILDDIR=$(BUILDDIR)
 
 clean-pyc:
-	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name '*.pyc' -delete
+	find . -name '*.pyo' -delete
+	find . -name '__pycache__' -delete
 
 clean-test:
 	rm -fr .cache/
@@ -70,7 +74,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 coverage:
-	coverage run -m pytest tests/
+	coverage run -m pytest $(TEST_ARGS) tests/
 	coverage report
 
 coverage-html: coverage
@@ -83,9 +87,8 @@ create-db:
 
 develop:
 	pip install -U pip setuptools wheel
-	pip install -U -r requirements.txt
-	pip install -U -e .[docs]
-	pip install -U -e .[tests]
+	pip install -U -e .
+	pip install -U -r requirements/dev.pip
 
 dist: clean
 	python setup.py sdist bdist_wheel
@@ -95,23 +98,23 @@ docs:
 	$(MAKE) -C docs html BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
 
 isort:
-	isort --recursive setup.py {{ cookiecutter.pkg_name }} tests/
+	isort --recursive setup.py {{ cookiecutter.pkg_name }}/ tests/
 
 migrate:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py migrate
+	envdir envs/$(ENV) python manage.py migrate
 
 open-docs:
 	python -c "import os, webbrowser; webbrowser.open('file://{}/docs/{}/html/index.html'.format(os.getcwd(), '$(BUILDDIR)'))"
 
 runserver:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py runserver $(PORT)
+	envdir envs/$(ENV) python manage.py runserver $(PORT)
 
 serve-docs:
 	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
 	cd docs/$(BUILDDIR)/html; python -m SimpleHTTPServer $(PORT)
 
 shell:
-	envdir envs/$(ENV) {{ cookiecutter.pkg_name }}/manage.py shell
+	envdir envs/$(ENV) python manage.py shell
 
 test:
 	py.test $(TEST_ARGS) tests/

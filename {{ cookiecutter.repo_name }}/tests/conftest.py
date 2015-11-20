@@ -5,17 +5,14 @@ import pytest
 
 
 @pytest.fixture
-def loaddata(settings, transactional_db):
+def loaddata(settings, db):
     """Loads a Django fixture.
 
-    Works exactly like the loaddata command. All command line options
-    must be given as keyword arguments.
+    Works exactly like the loaddata command. All command line options must be
+    given as keyword arguments.
 
-    There is no no need to mark the test itself with the django_db
-    marker because the loaddata fixture has already started a database
-    transaction.
-
-    This fixture enables timezone support by default.
+    There is no no need to mark the test itself with the django_db marker
+    because the loaddata fixture already loads the db fixture.
 
     Usage::
 
@@ -28,6 +25,5 @@ def loaddata(settings, transactional_db):
             loaddata('other_fixture', database='other')
             # do a test using the fixture
     """
-    settings.USE_TZ = True
     from django.core import management
     return partial(management.call_command, 'loaddata')

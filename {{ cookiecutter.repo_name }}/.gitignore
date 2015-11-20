@@ -1,4 +1,7 @@
 *.py[cod]
+*~
+.python-version
+__pycache__
 
 # C extensions
 *.so
@@ -26,7 +29,9 @@ envs/*
 media
 static_root
 
-# Installer logs
+# Logs
+*.log
+*.log.*
 pip-log.txt
 
 # Unit test / coverage reports
@@ -42,8 +47,9 @@ htmlcov
 output/*.html
 output/*/index.html
 
-# Bower
+# Bower and npm
 bower_components
+node_modules
 
 # Sphinx
 docs/_build
