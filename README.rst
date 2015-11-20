@@ -70,6 +70,7 @@ Testing
 * `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `django-coverage-plugin <https://github.com/nedbat/django_coverage_plugin>`_
+* `doc8 <https://github.com/openstack/doc8>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
 * `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
