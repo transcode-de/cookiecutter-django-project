@@ -22,6 +22,7 @@ requires = [
     # 'django-configurations==0.8',
     'django-crispy-forms==1.4.0',
     'django-grappelli==2.6.3',
+    'django-model-utils==2.3.1',
     'envdir==0.7',
     'psycopg2==2.5.4',
     'pytz==2014.10',
@@ -36,11 +37,12 @@ setup(
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
+    scripts=['manage.py'],
     install_requires=requires,
     license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Framework :: Django',
         'Intended Audience :: Developers',
         {% if cookiecutter.license|lower == 'bsd' -%}
         'License :: OSI Approved :: BSD License',
@@ -51,8 +53,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ],
 )

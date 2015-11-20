@@ -11,6 +11,7 @@ Contents:
 
    installation
    deployment
+   contributing
 
 Indices and tables
 ==================

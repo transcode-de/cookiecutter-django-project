@@ -26,15 +26,13 @@ envs/*
 !envs/dev
 
 # Django
-CACHE/
-compressor_cache/
 media
 static_root
 
 # Logs
-pip-log.txt
 *.log
 *.log.*
+pip-log.txt
 
 # Unit test / coverage reports
 .cache
@@ -49,8 +47,9 @@ htmlcov
 output/*.html
 output/*/index.html
 
-# Bower
+# Bower and npm
 bower_components
+node_modules
 
 # Sphinx
 docs/_build

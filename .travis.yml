@@ -1,0 +1,18 @@
+language: python
+python: 3.5
+cache:
+  directories:
+    - ~/.cache/pip
+install:
+  - pip install -r requirements/ci.txt
+env:
+  - TOXENV=py27
+  - TOXENV=py34
+  - TOXENV=py35
+  - TOXENV=pypy
+script:
+  - tox
+sudo: false
+notifications:
+  slack:
+    secure: ic70R8NJdSRtGvpOS2xJzegUTD/vVzgvz47rGmBCt2d0pW01IUA1pZ/KGAMj17F0dqhuv/RKlXex9TagHzf0AyEWOiFj5cr/zJyWKxtXsMhzJnpGwltMoE44lHfNW79xHXyEaRDRPdo1NwVvtDG4KYAocseMHMhCPhuB1TJohdo=
