@@ -1,8 +1,8 @@
 # This file is used for all packages required for local development.
 
--r ./docs.txt
--r ./test.txt
--r ./test-local.txt
+-r ./docs.pip
+-r ./test.pip
+-r ./test-local.pip
 
 Werkzeug==0.9.6
 Glances==2.5.1

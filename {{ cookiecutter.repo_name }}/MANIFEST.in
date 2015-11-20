@@ -6,9 +6,7 @@ include tox.ini
 exclude .bumpversion.cfg
 
 recursive-include docs *.rst conf.py Makefile make.bat
-
-recursive-include requirements *.txt
-
+recursive-include requirements *.pip
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
