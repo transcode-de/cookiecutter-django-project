@@ -6,6 +6,10 @@ cookiecutter-django-project
     :target: https://travis-ci.org/transcode-de/cookiecutter-django-project
     :alt: Build Status
 
+.. image:: https://img.shields.io/requires/github/transcode-de/cookiecutter-django-project.svg
+    :target: https://requires.io/github/transcode-de/cookiecutter-django-project/requirements/?branch=master
+    :alt: Requirements Status
+
 .. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=issues%20ready
     :target: https://waffle.io/transcode-de/cookiecutter-django-project
     :alt: 'Stories in Ready'
