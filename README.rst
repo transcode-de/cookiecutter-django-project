@@ -10,8 +10,8 @@ cookiecutter-django-project
     :target: https://waffle.io/transcode-de/cookiecutter-django-project
     :alt: 'Stories in Ready'
 
-A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we
-use for Django projects at `transcode <http://www.transcode.de/>`_.
+A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we use for
+Django projects at `transcode <http://www.transcode.de/>`_.
 
 Batteries included
 ==================
@@ -79,53 +79,68 @@ Testing
 Creating a new Project
 ======================
 
-First you have to install `Cookiecutter <https://github.com/audreyr/cookiecutter>`_::
+First you have to install `Cookiecutter <https://github.com/audreyr/cookiecutter>`_:
+
+::
 
     $ pip install cookiecutter
 
-After that change to the directory where you want to create a your new
-Django project in. Then set up the project using this cookiecutter
-template like so::
+After that change to the directory where you want to create a your new Django
+project in. Then set up the project using this cookiecutter template like so:
+
+::
 
     $ cookiecutter gh:transcode-de/cookiecutter-django-project
 
-You have to answer a few questions to configure the project. The
-defaults are good for transcode projects - surely you want to override
-them for your projects.
+You have to answer a few questions to configure the project. The defaults are
+good for transcode projects - surely you want to override them for your
+projects.
 
 Next Steps
 ==========
 
-Change into your newly created project directory and execute the
-following commands to get started.
+Change into your newly created project directory and execute the following
+commands to get started.
 
-Install the packages for development::
+Install the packages for development:
+
+::
 
     $ make develop
 
-Then create the new PostgreSQL user and database::
+Then create the new PostgreSQL user and database:
+
+::
 
     $ make create-db
 
-The next step is to create the Django app(s) you want for the project::
+The next step is to create the Django app(s) you want for the project:
+
+::
 
     $ mkdir -p <projectname>/<appname>
     $ django-admin startapp <appname> <projectname>/<appname>
 
-Now create the database tables::
+Now create the database tables:
+
+::
 
     $ make migrate
 
-And start the development webserver::
+And start the development webserver:
+
+::
 
     $ make runserver
 
-To see the other targets available in the ``Makefile`` simply run::
+To see the other targets available in the ``Makefile`` simply run:
+
+::
 
     $ make
 
 License
 =======
 
-This project is licensed under the New BSD License. See ``LICENSE`` for
-the full license.
+This project is licensed under the New BSD License. See ``LICENSE`` for the
+full license.
