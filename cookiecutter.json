@@ -5,6 +5,7 @@
     "author_name": "transcode",
     "github_account": "transcode-de",
     "email": "noreply@example.com",
+    "error_email": "errors@example.com",
     "domain": "www.example.com",
     "description": "A short description of the project.",
     "year": "2015",
