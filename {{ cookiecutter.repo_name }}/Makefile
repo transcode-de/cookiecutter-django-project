@@ -20,7 +20,8 @@ $(eval $(call CMDS, $(cmd)))
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
-	@echo "  clean                    to remove all build, test, coverage and Python artifacts"
+	@echo "  clean                    to remove all build, test, coverage and Python artifacts (does not remove backups)"
+	@echo "  clean-backups            to remove backup files created by editors and Git"
 	@echo "  clean-build              to remove build artifacts"
 	@echo "  clean-docs               to remove documentation artifacts"
 	@echo "  clean-pyc                to remove Python file artifacts"
@@ -46,6 +47,10 @@ help:
 
 clean: clean-build clean-docs clean-pyc clean-test
 
+clean-backups:
+	find . -name '*~' -delete
+	find . -name '*.orig' -delete
+
 clean-build:
 	rm -fr build/
 	rm -fr dist/
@@ -57,7 +62,6 @@ clean-docs:
 clean-pyc:
 	find . -name '*.pyc' -delete
 	find . -name '*.pyo' -delete
-	find . -name '*~' -delete
 	find . -name '__pycache__' -delete
 
 clean-test:
