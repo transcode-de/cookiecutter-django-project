@@ -2,6 +2,7 @@
 
 -r ./docs.txt
 -r ./test.txt
+-r ./test-local.txt
 
 Werkzeug==0.9.6
 Glances==2.5.1

@@ -4,7 +4,7 @@ cache:
   directories:
     - ~/.cache/pip
 install:
-  - pip install -r requirements.txt
+  - pip install -r requirements/ci.txt
 env:
   - TOXENV=py27
   - TOXENV=py34
