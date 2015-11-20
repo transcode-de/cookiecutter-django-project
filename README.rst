@@ -24,6 +24,7 @@ Batteries included
 * `django-braces <https://github.com/brack3t/django-braces/>`_
 * `django-crispy-forms <https://github.com/maraujop/django-crispy-forms>`_
 * `django-grappelli <https://github.com/sehmaschine/django-grappelli>`_
+* `django-model-utils <https://github.com/carljm/django-model-utils>`_
 * `psycopg2 <http://initd.org/psycopg/>`_
 * `Sphinx <http://sphinx-doc.org/>`_
 
