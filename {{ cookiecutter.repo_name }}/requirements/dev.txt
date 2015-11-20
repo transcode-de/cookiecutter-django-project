@@ -14,6 +14,7 @@ ipython==2.3.1
 # Newer versions of pdbpp do not work with Python 3
 # See https://bitbucket.org/antocuni/pdb/issue/45/fails-to-install-on-os-x-1010-python-343
 pdbpp==0.8.1  # rq.filter: !=0.8.2
+pg-activity==1.2.0
 sqlparse==0.1.14
 
 # Fork of django-devserver with support for Django 1.8 and Python 3
