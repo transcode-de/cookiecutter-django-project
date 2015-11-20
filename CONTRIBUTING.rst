@@ -75,7 +75,8 @@ local development.
 
        $ mkvirtualenv cookiecutter-django-project
        $ cd cookiecutter-django-project
-       $ pip install -r requirements
+       $ pip install -r requirements/dev.pip
+       $ pip install -r requirements/test-local.pip
 
 4. Create a branch for local development:
 
