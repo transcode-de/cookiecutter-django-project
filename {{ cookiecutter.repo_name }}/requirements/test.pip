@@ -10,4 +10,5 @@ freezegun==0.2.8
 isort==3.9.4
 pytest-django==2.7.0
 pytest-factoryboy==1.1.2
-pytest==2.6.4
+pytest-faker==1.1.0
+pytest==2.8.2

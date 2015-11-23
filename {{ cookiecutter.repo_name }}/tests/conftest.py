@@ -2,6 +2,7 @@
 from functools import partial
 
 import pytest
+from faker import Faker
 
 
 @pytest.fixture
@@ -27,3 +28,15 @@ def loaddata(settings, db):
     """
     from django.core import management
     return partial(management.call_command, 'loaddata')
+
+
+def pytest_runtest_setup(item):
+    """Seed the Faker generator for every test.
+
+    Faker is seeded at the beginning of each test based on the test name, so
+    each test that uses Faker will use the same fake data between test runs,
+    regardless of test order.
+
+    Requires fake-factory 0.5.3 or newer.
+    """
+    Faker().seed(item.nodeid)
