@@ -2,6 +2,7 @@
 *~
 .python-version
 __pycache__
+!.gitkeep
 
 # C extensions
 *.so
