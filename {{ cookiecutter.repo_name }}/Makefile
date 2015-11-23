@@ -1,3 +1,4 @@
+APP_NAME =
 BUILDDIR ?= _build
 ENV ?= dev
 PORT ?= 8000
@@ -15,8 +16,8 @@ endef
 $(eval $(call CMDS, $(cmd)))
 
 .PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-all \
-	test-upload upload
+    create-db develop docs isort migrate open-docs serve-docs runserver shell startapp test \
+    test-all test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -39,10 +40,12 @@ help:
 	@echo "  runserver                to start Django's development Web server"
 	@echo "  serve-docs               to serve the project documentation in the default browser"
 	@echo "  shell                    to start a Python interactive interpreter"
+	@echo "  startapp                 to create a new app on base of app template. You have to specify APP_NAME."
 	@echo "  test                     to run unit tests quickly with the default Python"
 	@echo "  test-all                 to run unit tests on every Python version with tox"
 	@echo "  test-upload              to upload a release to test PyPI using twine"
 	@echo "  upload                   to upload a release using twine"
+
 
 
 clean: clean-build clean-docs clean-pyc clean-test
@@ -115,6 +118,15 @@ serve-docs:
 
 shell:
 	envdir envs/$(ENV) python manage.py shell
+
+startapp:
+ifeq ($(APP_NAME),)
+	@echo "You need to specify a APP_NAME."
+else
+	mkdir myproject/apps/$(APP_NAME)
+	envdir envs/$(ENV) python manage.py startapp $(APP_NAME) {{ cookiecutter.pkg_name }}/apps/$(APP_NAME) --template {{ cookiecutter.pkg_name }}/config/app_template
+	@echo "Don't forget to add '$(APP_NAME)' to INSTALLED_APPS in 'config/settings/common.py'!"
+endif
 
 test:
 	py.test $(TEST_ARGS) tests/
