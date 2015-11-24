@@ -3,12 +3,11 @@
 
 -r ./forks.pip
 
-coverage==4.0.0
+coverage==4.0.2
 django-coverage-plugin==1.1
-factory_boy==2.4.1
-freezegun==0.2.8
-isort==3.9.4
-pytest-django==2.7.0
-pytest-factoryboy==1.1.2
+freezegun==0.3.5
+isort==4.2.2
+pytest-django==2.9.1
+pytest-factoryboy==1.1.4
 pytest-faker==1.1.0
-pytest==2.8.2
+pytest==2.8.3

@@ -4,6 +4,7 @@ from configurations import values
 
 class PostgreSQLDatabases(object):
     """Settings for local PostgreSQL databases."""
+
     DATABASES = {
         'default': dj_database_url.config(
             default='postgres://{{ cookiecutter.repo_name }}:{{ cookiecutter.repo_name }}@localhost/{{ cookiecutter.repo_name }}',  # noqa
@@ -17,6 +18,7 @@ class PostgreSQLDatabases(object):
 
 class EmptyDatabases(object):
     """Empty databases settings, used to force to overwrite them."""
+
     DATABASES = {
         'default': dj_database_url.config(env='DEFAULT_DATABASE_URL')
     }
