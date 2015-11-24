@@ -3,10 +3,13 @@ include LICENSE
 include Makefile
 include manage.py
 include tox.ini
-exclude .bumpversion.cfg
 
-recursive-include docs *.rst conf.py Makefile make.bat
+exclude .bumpversion.cfg
+exclude .editorconfig
+
+recursive-include docs *.rst .gitkeep conf.py Makefile make.bat
 recursive-include requirements *.pip
+
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
