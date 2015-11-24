@@ -62,20 +62,26 @@ Development Tools
 * `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_
 
+Lint Tools
+----------
+
+.. class:: compact
+
+* `check-manifest <https://github.com/mgedmin/check-manifest>`_
+* `doc8 <https://github.com/openstack/doc8>`_
+* `flake8 <https://gitlab.com/pycqa/flake8>`_
+* `isort <https://github.com/timothycrosley/isort>`_
+* `pep257 <https://github.com/GreenSteam/pep257>`_
+
 Testing
 -------
 
 .. class:: compact
 
-* `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `django-coverage-plugin <https://github.com/nedbat/django_coverage_plugin>`_
-* `doc8 <https://github.com/openstack/doc8>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
-* `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
-* `isort <https://github.com/timothycrosley/isort>`_
-* `pep257 <https://github.com/GreenSteam/pep257>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
