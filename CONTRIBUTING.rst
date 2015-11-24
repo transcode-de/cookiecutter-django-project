@@ -75,8 +75,7 @@ local development.
 
        $ mkvirtualenv cookiecutter-django-project
        $ cd cookiecutter-django-project
-       $ pip install -r requirements/dev.pip
-       $ pip install -r requirements/test-local.pip
+       $ make develop
 
 4. Create a branch for local development:
 
@@ -92,7 +91,7 @@ local development.
 
    ::
 
-       $ tox
+       $ make test
 
 6. Commit your changes and push your branch to GitHub:
 
@@ -116,12 +115,3 @@ Before you submit a pull request, check that it meets these guidelines:
 3. The pull request should work for Python 2.7 and 3.5. Check
    `Travis CI <https://travis-ci.org/transcode-de/cookiecutter-django-project/pull_requests>`_
    and make sure that the tests pass for all supported Python versions.
-
-Tips
-====
-
-To run a subset of tests:
-
-::
-
-    $ make test TEST_ARGS='-k <EXPRESSION>'

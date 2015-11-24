@@ -10,8 +10,9 @@ env:
   - TOXENV=py34
   - TOXENV=py35
   - TOXENV=pypy
+  - TOXENV=project
 script:
-  - tox
+  - make test
 sudo: false
 notifications:
   slack:

@@ -15,7 +15,6 @@ indent_style = tab
 end_of_line = crlf
 
 [*.{css,html,scss,yml}]
-indent_style = space
 indent_size = 2
 
 [LICENSE]
