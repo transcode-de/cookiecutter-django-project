@@ -14,8 +14,8 @@ cookiecutter-django-project
     :target: https://waffle.io/transcode-de/cookiecutter-django-project
     :alt: 'Stories in Ready'
 
-A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we use for
-Django projects at `transcode <http://www.transcode.de/>`_.
+A fully tested `Cookiecutter <https://github.com/audreyr/cookiecutter>`_
+template we use for Django projects at `transcode <http://www.transcode.de/>`_.
 
 Batteries included
 ==================
