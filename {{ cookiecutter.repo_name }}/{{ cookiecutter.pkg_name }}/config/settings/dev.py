@@ -31,6 +31,12 @@ class Dev(PostgreSQLDatabases, Common):
     # devserver must be ahead of django.contrib.staticfiles
     INSTALLED_APPS = ('devserver',) + Common.INSTALLED_APPS + ('debug_toolbar',)
 
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    }
+
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     @property
