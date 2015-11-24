@@ -57,13 +57,21 @@ class BaseDir(object):
 
 
 class Email(object):
-    """Email settings for public projects."""
+    """Default Email settings for public projects."""
 
     EMAIL_HOST = values.Value('localhost')
     EMAIL_PORT = values.IntegerValue(25)  # Alternate TLS port is 587
     EMAIL_USE_TLS = values.BooleanValue(True)
     EMAIL_HOST_USER = values.Value('{{ cookiecutter.email }}')
     EMAIL_HOST_PASSWORD = values.SecretValue()
+
+
+class MailgunEmail(object):
+    """Email settings for public projects using Mailgun."""
+
+    EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+    MAILGUN_ACCESS_KEY = values.SecretValue()
+    MAILGUN_SERVER_NAME = values.Value('mg.transcode.de')
 
 
 class Common(Configuration):
