@@ -2,12 +2,20 @@
 cookiecutter-django-project
 ***************************
 
-.. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=issues%20ready
- :target: https://waffle.io/transcode-de/cookiecutter-django-project
- :alt: 'Stories in Ready'
+.. image:: https://img.shields.io/travis/transcode-de/cookiecutter-django-project/master.svg
+    :target: https://travis-ci.org/transcode-de/cookiecutter-django-project
+    :alt: Build Status
 
-A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we
-use for Django projects at `transcode <http://www.transcode.de/>`_.
+.. image:: https://img.shields.io/requires/github/transcode-de/cookiecutter-django-project.svg
+    :target: https://requires.io/github/transcode-de/cookiecutter-django-project/requirements/?branch=master
+    :alt: Requirements Status
+
+.. image:: https://badge.waffle.io/transcode-de/cookiecutter-django-project.svg?label=ready&title=issues%20ready
+    :target: https://waffle.io/transcode-de/cookiecutter-django-project
+    :alt: 'Stories in Ready'
+
+A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we use for
+Django projects at `transcode <http://www.transcode.de/>`_.
 
 Batteries included
 ==================
@@ -24,6 +32,7 @@ Batteries included
 * `django-braces <https://github.com/brack3t/django-braces/>`_
 * `django-crispy-forms <https://github.com/maraujop/django-crispy-forms>`_
 * `django-grappelli <https://github.com/sehmaschine/django-grappelli>`_
+* `django-model-utils <https://github.com/carljm/django-model-utils>`_
 * `psycopg2 <http://initd.org/psycopg/>`_
 * `Sphinx <http://sphinx-doc.org/>`_
 
@@ -48,6 +57,7 @@ Development Tools
     * `sqlparse <https://github.com/andialbrecht/sqlparse>`_
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
 
+* `Glances <https://github.com/nicolargo/glances>`_
 * `IPython <http://ipython.org/>`_
 * `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_
@@ -59,66 +69,85 @@ Testing
 
 * `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
+* `django-coverage-plugin <https://github.com/nedbat/django_coverage_plugin>`_
+* `doc8 <https://github.com/openstack/doc8>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
 * `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
 * `isort <https://github.com/timothycrosley/isort>`_
+* `pep257 <https://github.com/GreenSteam/pep257>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
 * `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
+* `tox-pyenv <https://github.com/samstav/tox-pyenv>`_
 
 Creating a new Project
 ======================
 
-First you have to install `Cookiecutter <https://github.com/audreyr/cookiecutter>`_::
+First you have to install `Cookiecutter <https://github.com/audreyr/cookiecutter>`_:
+
+::
 
     $ pip install cookiecutter
 
-After that change to the directory where you want to create a your new
-Django project in. Then set up the project using this cookiecutter
-template like so::
+After that change to the directory where you want to create a your new Django
+project in. Then set up the project using this cookiecutter template like so:
+
+::
 
     $ cookiecutter gh:transcode-de/cookiecutter-django-project
 
-You have to answer a few questions to configure the project. The
-defaults are good for transcode projects - surely you want to override
-them for your projects.
+You have to answer a few questions to configure the project. The defaults are
+good for transcode projects - surely you want to override them for your
+projects.
 
 Next Steps
 ==========
 
-Change into your newly created project directory and execute the
-following commands to get started.
+Change into your newly created project directory and execute the following
+commands to get started.
 
-Install the packages for development::
+Install the packages for development:
+
+::
 
     $ make develop
 
-Then create the new PostgreSQL user and database::
+Then create the new PostgreSQL user and database:
+
+::
 
     $ make create-db
 
-The next step is to create the Django app(s) you want for the project::
+The next step is to create the Django app(s) you want for the project:
+
+::
 
     $ mkdir -p <projectname>/<appname>
     $ django-admin startapp <appname> <projectname>/<appname>
 
-Now create the database tables::
+Now create the database tables:
+
+::
 
     $ make migrate
 
-And start the development webserver::
+And start the development webserver:
+
+::
 
     $ make runserver
 
-To see the other targets available in the ``Makefile`` simply run::
+To see the other targets available in the ``Makefile`` simply run:
+
+::
 
     $ make
 
 License
 =======
 
-This project is licensed under the New BSD License. See ``LICENSE`` for
-the full license.
+This project is licensed under the New BSD License. See ``LICENSE`` for the
+full license.
