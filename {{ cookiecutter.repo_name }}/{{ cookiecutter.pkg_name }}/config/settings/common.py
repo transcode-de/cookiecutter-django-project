@@ -146,7 +146,7 @@ class Common(Configuration):
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/var/www/example.com/media/"
-    MEDIA_ROOT = os.path.join(BaseDir.BASE_DIR, 'media')
+    MEDIA_ROOT = values.PathValue(os.path.join(BaseDir.BASE_DIR, 'media'))
 
     # URL that handles the media served from MEDIA_ROOT. Make sure to use a
     # trailing slash.
@@ -157,7 +157,7 @@ class Common(Configuration):
     # Don't put anything in this directory yourself; store your static files
     # in apps' "static/" subdirectories and in STATICFILES_DIRS.
     # Example: "/var/www/example.com/static/"
-    STATIC_ROOT = os.path.join(BaseDir.BASE_DIR, 'static_root')
+    STATIC_ROOT = values.PathValue(os.path.join(BaseDir.BASE_DIR, 'static_root'))
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/dev/howto/static-files/
@@ -234,7 +234,7 @@ class Common(Configuration):
     GRAPPELLI_ADMIN_TITLE = '{{ cookiecutter.project_name }} Admin'
 
     EMAIL_SUBJECT_PREFIX = '[{{ cookiecutter.project_name }}]'
-    DEFAULT_FROM_EMAIL = '{{ cookiecutter.email }}'
+    DEFAULT_FROM_EMAIL = values.EmailValue('{{ cookiecutter.email }}')
     SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 
