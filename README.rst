@@ -75,6 +75,7 @@ Testing
 * `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
 * `isort <https://github.com/timothycrosley/isort>`_
+* `pep257 <https://github.com/GreenSteam/pep257>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
