@@ -6,7 +6,6 @@
 coverage==4.0.2
 django-coverage-plugin==1.1
 freezegun==0.3.5
-isort==4.2.2
 pytest-django==2.9.1
 pytest-factoryboy==1.1.4
 pytest-faker==1.1.0
