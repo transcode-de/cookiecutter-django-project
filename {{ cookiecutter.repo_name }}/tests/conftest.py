@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture
 def loaddata(settings, db):
-    """Loads a Django fixture.
+    """Load a Django fixture.
 
     Works exactly like the loaddata command. All command line options must be
     given as keyword arguments.
