@@ -29,7 +29,8 @@ help:
 	@echo "  cmd=<manage.py command>  to use any other manage.py command"
 	@echo "  coverage                 to generate a coverage report with the default Python"
 	@echo "  coverage-html            to generate and open a HTML coverage report with the default Python"
-	@echo "  create-db                to create a new PostgreSQL user and database"
+	@echo "  create-db                to create a new PostgreSQL database"
+	@echo "  create-db-user           to create a new PostgreSQL user"
 	@echo "  develop                  to install (or update) all packages required for development"
 	@echo "  dist                     to package a release"
 	@echo "  docs                     to build the project documentation as HTML"
@@ -83,8 +84,10 @@ coverage-html: coverage
 	python -c "import os, webbrowser; webbrowser.open('file://{}/htmlcov/index.html'.format(os.getcwd()))"
 
 create-db:
+	createdb -U {{ cookiecutter.repo_name }} -l en_US.utf-8 -E utf-8 -O {{ cookiecutter.repo_name }} -T template0 -e {{ cookiecutter.repo_name }}
+
+create-db-user:
 	createuser -d -e -P {{ cookiecutter.repo_name }}
-	createdb -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
 
 develop:
 	pip install -U pip setuptools wheel
