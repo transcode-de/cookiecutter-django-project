@@ -45,7 +45,7 @@ help:
 	@echo "  upload                   to upload a release using twine"
 
 
-clean: clean-build clean-docs clean-pyc clean-test
+clean: clean-build clean-docs clean-test clean-pyc
 
 clean-backups:
 	find . -name '*~' -delete

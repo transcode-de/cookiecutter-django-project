@@ -10,7 +10,7 @@ help:
 	@echo "  test                     to run unit tests on every Python version with tox"
 
 
-clean: clean-pyc clean-test
+clean: clean-test clean-pyc
 
 clean-backups:
 	find . -name '*~' -delete
