@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class {{ camel_case_app_name }}Config(AppConfig):
-    name = '{{ app_name }}'
+class {{ '{{ app_name|title }}' }}Config(AppConfig):
+    name = '{{ cookiecutter.pkg_name }}.apps.{{ '{{ app_name }}' }}'
