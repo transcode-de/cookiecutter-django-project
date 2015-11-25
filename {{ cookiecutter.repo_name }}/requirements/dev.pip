@@ -10,6 +10,7 @@ Glances==2.5.1
 bottle==0.12.9
 bumpversion==0.5.3
 django-debug-toolbar==1.4
+envdir==0.7
 flake8==2.5.0
 ipython==4.0.0
 isort==4.2.2
