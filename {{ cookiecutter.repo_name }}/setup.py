@@ -14,7 +14,7 @@ def read(*paths):
         return f.read()
 
 requires = [
-    'Django==1.8.2',
+    'Django==1.8.7',
     'dj-database-url==0.3.0',
     'django-braces==1.4.0',
     # django-configurations 0.8 does not work with Django 1.8. A fork has been

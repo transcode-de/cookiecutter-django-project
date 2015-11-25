@@ -14,8 +14,8 @@ cookiecutter-django-project
     :target: https://waffle.io/transcode-de/cookiecutter-django-project
     :alt: 'Stories in Ready'
 
-A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we use for
-Django projects at `transcode <http://www.transcode.de/>`_.
+A fully tested `Cookiecutter <https://github.com/audreyr/cookiecutter>`_
+template we use for Django projects at `transcode <http://www.transcode.de/>`_.
 
 Batteries included
 ==================
@@ -62,23 +62,29 @@ Development Tools
 * `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_
 * `pg_activity <https://github.com/julmon/pg_activity>`_
 
+Lint Tools
+----------
+
+.. class:: compact
+
+* `check-manifest <https://github.com/mgedmin/check-manifest>`_
+* `doc8 <https://github.com/openstack/doc8>`_
+* `flake8 <https://gitlab.com/pycqa/flake8>`_
+* `isort <https://github.com/timothycrosley/isort>`_
+* `pep257 <https://github.com/GreenSteam/pep257>`_
+
 Testing
 -------
 
 .. class:: compact
 
-* `check-manifest <https://github.com/mgedmin/check-manifest>`_
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `django-coverage-plugin <https://github.com/nedbat/django_coverage_plugin>`_
-* `doc8 <https://github.com/openstack/doc8>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
-* `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
-* `isort <https://github.com/timothycrosley/isort>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
-* `pytest-pythonpath <https://github.com/bigsassy/pytest-pythonpath>`_
 * `tox <http://tox.testrun.org/>`_
 * `tox-pyenv <https://github.com/samstav/tox-pyenv>`_
 
