@@ -126,12 +126,12 @@ Then create the new PostgreSQL user and database:
 
     $ make create-db
 
-The next step is to create the Django app(s) you want for the project:
+The next step is to create the Django app(s) you want for the project. Just run
+the ``startapp`` task to create new Django app(s):
 
 ::
 
-    $ mkdir -p <projectname>/<appname>
-    $ django-admin startapp <appname> <projectname>/<appname>
+    $ make startapp
 
 Now create the database tables:
 
