@@ -15,8 +15,8 @@ endef
 $(eval $(call CMDS, $(cmd)))
 
 .PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-	create-db develop docs isort migrate open-docs serve-docs runserver shell test test-all \
-	test-upload upload
+    create-db develop docs isort migrate open-docs serve-docs runserver shell startapp test \
+    test-all test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
@@ -39,6 +39,7 @@ help:
 	@echo "  runserver                to start Django's development Web server"
 	@echo "  serve-docs               to serve the project documentation in the default browser"
 	@echo "  shell                    to start a Python interactive interpreter"
+	@echo "  startapp                 to create a new Django app"
 	@echo "  test                     to run unit tests quickly with the default Python"
 	@echo "  test-all                 to run unit tests on every Python version with tox"
 	@echo "  test-upload              to upload a release to test PyPI using twine"
@@ -115,6 +116,13 @@ serve-docs:
 
 shell:
 	envdir envs/$(ENV) python manage.py shell
+
+startapp:
+	@read -p "Enter the name of the new Django app: " app_name; \
+	app_name_title=`python -c "import sys; sys.stdout.write(sys.argv[1].title())" $$app_name`; \
+	mkdir -p {{ cookiecutter.pkg_name }}/apps/$$app_name; \
+	envdir envs/$(ENV) python manage.py startapp $$app_name {{ cookiecutter.pkg_name }}/apps/$$app_name --template {{ cookiecutter.pkg_name }}/config/app_template; \
+	echo "Don't forget to add '{{ cookiecutter.pkg_name }}.apps."$$app_name".apps."$$app_name_title"Config' to INSTALLED_APPS in '{{ cookiecutter.pkg_name }}.config/settings/common.py'!"
 
 test:
 	py.test $(TEST_ARGS) tests/
