@@ -258,3 +258,8 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+linkcheck_ignore = [
+    # Uncomment the next line if the repository on GitHub is private.
+    #r'https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}.*',
+]
