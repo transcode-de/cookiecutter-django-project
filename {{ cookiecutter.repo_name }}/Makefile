@@ -52,6 +52,7 @@ clean: clean-build clean-docs clean-test clean-pyc
 clean-backups:
 	find . -name '*~' -delete
 	find . -name '*.orig' -delete
+	find . -name '*.swp' -delete
 
 clean-build:
 	rm -fr build/
