@@ -1,0 +1,1 @@
+postgres://{{ cookiecutter.repo_name }}:{{ cookiecutter.repo_name }}@localhost/{{ cookiecutter.repo_name }}

@@ -3,11 +3,10 @@ import subprocess
 
 from configurations import values
 
-from .common import Common
-from .databases import PostgreSQLDatabases
+from . import common, databases
 
 
-class Dev(PostgreSQLDatabases, Common):
+class Dev(databases.Databases, common.Common):
     """Settings for development."""
 
     def get_client_ip(self):
@@ -29,7 +28,7 @@ class Dev(PostgreSQLDatabases, Common):
         return (self.get_client_ip(),)
 
     # devserver must be ahead of django.contrib.staticfiles
-    INSTALLED_APPS = ('devserver',) + Common.INSTALLED_APPS + ('debug_toolbar',)
+    INSTALLED_APPS = ('devserver',) + common.Common.INSTALLED_APPS + ('debug_toolbar',)
 
     CACHES = {
         'default': {

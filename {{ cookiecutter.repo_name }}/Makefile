@@ -76,7 +76,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 coverage:
-	coverage run -m pytest $(TEST_ARGS) tests/
+	envdir envs/$(ENV) coverage run -m pytest $(TEST_ARGS) tests/
 	coverage report
 
 coverage-html: coverage
@@ -128,7 +128,7 @@ startapp:
 	echo "Don't forget to add '{{ cookiecutter.pkg_name }}.apps."$$app_name".apps."$$app_name_title"Config' to INSTALLED_APPS in '{{ cookiecutter.pkg_name }}.config/settings/common.py'!"
 
 test:
-	py.test $(TEST_ARGS) tests/
+	envdir envs/$(ENV) python -m pytest $(TEST_ARGS) tests/
 
 test-all:
 	tox

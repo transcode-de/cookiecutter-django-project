@@ -1,48 +1,8 @@
 import os
 
 from configurations import Configuration, values
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
 
-
-class AdminsValue(values.SingleNestedTupleValue):
-    """A ``SingleNestedTupleValue`` subclass to be used for the ADMINS and MANAGERS settings.
-
-    Two validators are executed for each tuple:
-
-        1. The exact length of each tuple must be two.
-        2. The second element of each tuple must be a valid email address.
-    """
-
-    def __init__(self, *args, **kwargs):
-        """Configure the value object and validate the default if present."""
-        super(AdminsValue, self).__init__(*args, **kwargs)
-        if self.default:
-            self.validate(self.default)
-
-    def validate_length(self, value):
-        """Validate that each tuple contains only two values."""
-        if len(value) != 2:
-            raise ValueError('Each ADMINS tuple must have exact two values')
-
-    def validate_email(self, value):
-        """Validate the email address."""
-        try:
-            validate_email(value)
-        except ValidationError:
-            raise ValueError('Cannot interpret email value {0!r}'.format(value))
-
-    def validate(self, value):
-        """Validate all tuples."""
-        for item in value:
-            self.validate_length(item)
-            self.validate_email(item[1])
-
-    def to_python(self, value):
-        """Convert environment variable string and validate the python objects."""
-        value = super(AdminsValue, self).to_python(value)
-        self.validate(value)
-        return value
+from .values import AdminsValue
 
 
 class BaseDir(object):
@@ -54,24 +14,6 @@ class BaseDir(object):
     """
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-
-class Email(object):
-    """Default Email settings for public projects."""
-
-    EMAIL_HOST = values.Value('localhost')
-    EMAIL_PORT = values.IntegerValue(25)  # Alternate TLS port is 587
-    EMAIL_USE_TLS = values.BooleanValue(True)
-    EMAIL_HOST_USER = values.Value('{{ cookiecutter.email }}')
-    EMAIL_HOST_PASSWORD = values.SecretValue()
-
-
-class MailgunEmail(object):
-    """Email settings for public projects using Mailgun."""
-
-    EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-    MAILGUN_ACCESS_KEY = values.SecretValue()
-    MAILGUN_SERVER_NAME = values.Value('mg.transcode.de')
 
 
 class Common(Configuration):
@@ -215,7 +157,7 @@ class Common(Configuration):
                 ],
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                'string_if_invalid': values.Value('', environ_name='TEMPLATE_STRING_IF_INVALID'),
+                # 'string_if_invalid': values.Value('', environ_name='TEMPLATE_STRING_IF_INVALID'),
             },
         },
     ]
@@ -244,9 +186,3 @@ class Common(Configuration):
     EMAIL_SUBJECT_PREFIX = '[{{ cookiecutter.project_name }}]'
     DEFAULT_FROM_EMAIL = values.EmailValue('{{ cookiecutter.email }}')
     SERVER_EMAIL = DEFAULT_FROM_EMAIL
-
-
-class Public(Email, Common):
-    """Settings for public projects."""
-
-    SECRET_KEY = values.SecretValue()
