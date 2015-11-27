@@ -7,6 +7,7 @@ help:
 	@echo "  clean-pyc                to remove Python file artifacts"
 	@echo "  clean-test               to remove test artifacts"
 	@echo "  develop                  to install (or update) all packages required for development"
+	@echo "  isort                    to run isort on the whole project"
 	@echo "  test                     to run unit tests on every Python version with tox"
 
 
@@ -27,8 +28,10 @@ clean-test:
 
 develop:
 	pip install -U pip setuptools wheel
-	pip install -U -r requirements/dev.pip
-	pip install -U -r requirements/test-local.pip
+	pip install -U -r requirements/dev.pip -r requirements/test-local.pip
+
+isort:
+	isort --recursive hooks/
 
 test:
 	tox
