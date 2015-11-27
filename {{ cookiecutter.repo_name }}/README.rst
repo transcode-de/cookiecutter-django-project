@@ -11,3 +11,6 @@
      :alt: Requirements Status
 
 {{ cookiecutter.description }}
+
+Detailed installation instructions for this Djangp project can be found in
+``docs/installation.rst``.

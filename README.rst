@@ -14,8 +14,43 @@ cookiecutter-django-project
     :target: https://waffle.io/transcode-de/cookiecutter-django-project
     :alt: 'Stories in Ready'
 
-A fully tested `Cookiecutter <https://github.com/audreyr/cookiecutter>`_
-template we use for Django projects at `transcode <http://www.transcode.de/>`_.
+A `Cookiecutter <https://github.com/audreyr/cookiecutter>`_ template we use for
+Django projects at `transcode <http://www.transcode.de/>`_.
+
+What makes this cookiecutter template special?
+
+* Fully tested cookiecutter template (Python 2, 3 and PyPy)
+* The Django project can be build as a Python package, which simplifies
+  distribution and installation
+* Comes with a simple, modern Django app template
+* Up-to-date requirements
+* Configured to work with PostgreSQL, including easy creation of user and
+  database
+* All Django settings can be easily configured for different environments like
+  ``dev`` or ``prod`` using environment variables
+* Django third-party packages like django-braces, django-crispy-forms,
+  django-debug-toolbar, django-devserver and django-model-utils are already
+  installed
+* IPython for a powerfull Python and Django shell
+* A set of basic Django HTML templates is included
+* Includes a ``Makefile`` which helps with all the every-day tasks
+* pdb++ and Werkzeug for better debugging
+* An extensive collection of lint tools for Python code, documentation and
+  packaging
+* Prepared for testing with pytest-django, including libraries like faker,
+  factory_boy, fauxfactory and freezegun as well as a few useful pytest
+  fixtures
+* Measuring of test coverage for Python code and Django templates
+* A set of tox environments to test the project with different Python versions
+  and all lint tools
+* pg-activity and Glances to monitor your development machine
+* bumpversion makes it easy to increment the version number in several files at
+  once with a single command
+* Includes configurations for different email backends (SMTP, Mailgun)
+* Prepared for reporting to a `Sentry <https://github.com/getsentry/sentry>`_ server
+* Comes with a project documentation built with Sphinx using the alabaster
+  theme, including pages for installation, settings, releases, deployment and
+  contributing
 
 Batteries included
 ==================
@@ -81,10 +116,13 @@ Testing
 * `coverage <http://nedbatchelder.com/code/coverage/>`_
 * `django-coverage-plugin <https://github.com/nedbat/django_coverage_plugin>`_
 * `factory_boy <https://pypi.python.org/pypi/factory_boy>`_
+* `faker <https://github.com/joke2k/faker>`_
+* `fauxfactory <https://github.com/omaciel/fauxfactory>`_
 * `freezegun <https://github.com/spulec/freezegun>`_
 * `pytest <http://pytest.org/>`_
 * `pytest-django <http://pytest-django.readthedocs.org/>`_
 * `pytest-factoryboy <http://pytest-factoryboy.readthedocs.org/en/latest/>`_
+* `pytest-faker <https://github.com/pytest-dev/pytest-faker>`_
 * `tox <http://tox.testrun.org/>`_
 * `tox-pyenv <https://github.com/samstav/tox-pyenv>`_
 
@@ -105,14 +143,20 @@ project in. Then set up the project using this cookiecutter template like so:
     $ cookiecutter gh:transcode-de/cookiecutter-django-project
 
 You have to answer a few questions to configure the project. The defaults are
-good for transcode projects - surely you want to override them for your
-projects.
+good for transcode projects - surely you want to override them for yours.
 
 Next Steps
 ==========
 
 Change into your newly created project directory and execute the following
 commands to get started.
+
+You should create a new virtualenv for the project:
+
+::
+
+    $ mkvirtualenv -a `pwd` my-project
+
 
 Install the packages for development:
 
@@ -124,6 +168,7 @@ Then create the new PostgreSQL user and database:
 
 ::
 
+    $ make create-db-user
     $ make create-db
 
 The next step is to create the Django app(s) you want for the project. Just run
@@ -139,7 +184,13 @@ Now create the database tables:
 
     $ make migrate
 
-And start the development webserver:
+And create a new Django superuser:
+
+::
+
+    $ envdir envs/dev/ python manage.py createsuperuser
+
+Finally start the development webserver:
 
 ::
 
@@ -150,6 +201,9 @@ To see the other targets available in the ``Makefile`` simply run:
 ::
 
     $ make
+
+Detailed installation instructions can be found in your new project under
+``docs/installation.rst``.
 
 License
 =======

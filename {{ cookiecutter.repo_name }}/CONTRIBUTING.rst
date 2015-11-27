@@ -31,8 +31,8 @@ whoever wants to implement it.
 Implement Features
 ------------------
 
-Look through the GitHub issues for features. Anything tagged with "feature" is
-open to whoever wants to implement it.
+Look through the GitHub issues for features. Anything tagged with "feature" or
+"help wanted" is open to whoever wants to implement it.
 
 Write Documentation
 -------------------
@@ -63,7 +63,7 @@ local development.
 1. Fork the `{{ cookiecutter.repo_name }}` repo on GitHub.
 2. Clone your fork locally:
 
-   ::
+    ::
 
        $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
 
@@ -71,34 +71,36 @@ local development.
    virtualenvwrapper installed, this is how you set up your fork for local
    development:
 
-   ::
+    ::
 
-       $ mkvirtualenv {{ cookiecutter.repo_name }}
-       $ cd {{ cookiecutter.repo_name }}
-       $ make develop
+        $ mkvirtualenv {{ cookiecutter.repo_name }}
+        $ cd {{ cookiecutter.repo_name }}
+        $ git flow init
+        $ make develop
+        $ make create-db-user
 
 4. Create a branch for local development:
 
-   ::
+    ::
 
-       $ git checkout -b name-of-your-bugfix-or-feature
+        $ git flow feature start name-of-your-bugfix-or-feature
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox:
+5. When you're done making changes, check that your changes pass the tests,
+   including testing other Python versions and running all lint tools with tox:
 
-   ::
+    ::
 
-       $ make test-all
+        $ make test-all
 
 6. Commit your changes and push your branch to GitHub:
 
-   ::
+    ::
 
-       $ git add .
-       $ git commit -m "Your detailed description of your changes."
-       $ git push origin name-of-your-bugfix-or-feature
+        $ git add .
+        $ git commit -m "Your detailed description of your changes."
+        $ git push origin name-of-your-bugfix-or-feature
 
 7. Submit a pull request through the GitHub website.
 
@@ -118,8 +120,13 @@ Before you submit a pull request, check that it meets these guidelines:
 Tips
 ====
 
-To run a subset of tests:
+To run a subset of tests pass the :option:`-k` inside the :envvar:`TEST_ARGS`
+variable to the `:command:`test` command:
 
 ::
 
     $ make test TEST_ARGS='-k <EXPRESSION>'
+
+The pytest documentation `explains
+<http://pytest.org/latest/example/markers.html#using-k-expr-to-select-tests-based-on-their-name>`_
+how to use the :option:`-k` option.
