@@ -124,7 +124,7 @@ runserver:
 
 serve-docs:
 	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
-	cd docs/$(BUILDDIR)/html; python -m SimpleHTTPServer $(PORT)
+	cd docs/$(BUILDDIR)/html; python -m http.server $(PORT)
 
 shell:
 	envdir envs/$(ENV) python manage.py shell
