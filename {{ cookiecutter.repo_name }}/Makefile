@@ -31,6 +31,8 @@ help:
 	@echo "  coverage-html            to generate and open a HTML coverage report with the default Python"
 	@echo "  create-db                to create a new PostgreSQL database"
 	@echo "  create-db-user           to create a new PostgreSQL user"
+	@echo "  drop-db                  to drop the PostgreSQL database"
+	@echo "  drop-db-user             to drop the PostgreSQL user"
 	@echo "  develop                  to install (or update) all packages required for development"
 	@echo "  dist                     to package a release"
 	@echo "  docs                     to build the project documentation as HTML"
@@ -89,6 +91,12 @@ create-db:
 
 create-db-user:
 	envdir envs/$(ENV) createuser -d -e {{ cookiecutter.repo_name }}
+
+drop-db:
+	envdir envs/$(ENV) dropdb -i -e -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
+
+drop-db-user:
+	dropuser -i -e {{ cookiecutter.repo_name }}
 
 develop:
 	pip install -U pip setuptools wheel
