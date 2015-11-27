@@ -2,7 +2,7 @@
 {{ cookiecutter.project_name }}
 *******************************
 
-.. image:: https://img.shields.io/codecov/c/token/YOUR_TOKEN/github/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/develop.svg
+.. image:: https://img.shields.io/codecov/c/token/<YOUR_TOKEN>/github/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}/develop.svg
     :target: http://codecov.io/github/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}?branch=develop
     :alt: Coverage Status
 
