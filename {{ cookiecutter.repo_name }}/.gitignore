@@ -2,7 +2,6 @@
 *~
 .python-version
 __pycache__
-!.gitkeep
 
 # C extensions
 *.so
@@ -27,8 +26,10 @@ envs/*
 !envs/dev
 
 # Django
-media
-static_root
+{{ cookiecutter.pkg_name }}/media/*
+!{{ cookiecutter.pkg_name }}/media/.gitkeep
+{{ cookiecutter.pkg_name }}/static_root/*
+!{{ cookiecutter.pkg_name }}/static_root/.gitkeep
 
 # Logs
 *.log
@@ -54,3 +55,4 @@ node_modules
 
 # Sphinx
 docs/_build
+!docs/_static/.gitkeep
