@@ -29,7 +29,7 @@ requirements as well:
 
     $ pip install {{ cookiecutter.pkg_name }}[mailgun]
 
-If you are using `Sentry <https://getsentry.com/>`_ you have to the same for
+If you are using `Sentry <https://getsentry.com/>`_ you have to do the same for
 ``raven``:
 
 ::
