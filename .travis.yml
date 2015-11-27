@@ -11,6 +11,10 @@ env:
   - TOXENV=py35
   - TOXENV=pypy
   - TOXENV=project
+services:
+  - postgresql
+addons:
+  postgresql: "9.3"
 script:
   - make test
 sudo: false
