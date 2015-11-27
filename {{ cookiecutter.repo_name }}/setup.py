@@ -13,6 +13,15 @@ def read(*paths):
     with open(os.path.join(*paths), 'r', 'utf-8') as f:
         return f.read()
 
+extras_require = {
+    'mailgun': [
+        'django-mailgun==0.8.0',
+    ],
+    'raven': [
+        'raven==5.8.1',
+    ],
+}
+
 requires = [
     'Django==1.8.7',
     'dj-database-url==0.3.0',
