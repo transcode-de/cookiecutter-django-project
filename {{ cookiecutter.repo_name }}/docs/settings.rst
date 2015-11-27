@@ -42,7 +42,7 @@ using environment variables.
         | ``'devserver.modules.profile.ProfileSummaryModule',)``
       - ``DJANGO_DEVSERVER_MODULES``
       - | django-devserver modules. See
-        | `list of available modules <https://github.com/dcramer/django-devserver#modules>`_.
+        | `list of available modules <https://github.com/dcramer/django-devserver>`_.
     * - ``devserver``
       - ``DEVSERVER_TRUNCATE_SQL``
       - ``True``
