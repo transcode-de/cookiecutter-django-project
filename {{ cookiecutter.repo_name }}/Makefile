@@ -84,10 +84,10 @@ coverage-html: coverage
 	python -c "import os, webbrowser; webbrowser.open('file://{}/htmlcov/index.html'.format(os.getcwd()))"
 
 create-db:
-	createdb -U {{ cookiecutter.repo_name }} -l en_US.utf-8 -E utf-8 -O {{ cookiecutter.repo_name }} -T template0 -e {{ cookiecutter.repo_name }}
+	envdir envs/$(ENV) createdb -U {{ cookiecutter.repo_name }} -l en_US.utf-8 -E utf-8 -O {{ cookiecutter.repo_name }} -T template0 -e {{ cookiecutter.repo_name }}
 
 create-db-user:
-	createuser -d -e -P {{ cookiecutter.repo_name }}
+	envdir envs/$(ENV) createuser -d -e {{ cookiecutter.repo_name }}
 
 develop:
 	pip install -U pip setuptools wheel
