@@ -16,6 +16,7 @@ clean: clean-test clean-pyc
 clean-backups:
 	find . -name '*~' -delete
 	find . -name '*.orig' -delete
+	find . -name '*.swp' -delete
 
 clean-pyc:
 	find . -name '*.pyc' -delete
