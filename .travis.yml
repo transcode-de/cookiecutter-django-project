@@ -10,7 +10,17 @@ env:
   - TOXENV=py34
   - TOXENV=py35
   - TOXENV=pypy
-  - TOXENV=project
+  - TOXENV=docs
+  - TOXENV=flake8
+  - TOXENV=isort
+  - TOXENV=project-develop
+  - TOXENV=project-docs
+  - TOXENV=project-flake8
+  - TOXENV=project-isort
+  - TOXENV=project-manifest
+  - TOXENV=project-pep257
+  - TOXENV=project-py27
+  - TOXENV=project-py35
 services:
   - postgresql
 addons:
