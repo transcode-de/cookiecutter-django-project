@@ -1,3 +1,5 @@
+PORT ?= 8000
+
 .PHONY: help clean clean-backups clean-pyc clean-test develop test
 
 help:
@@ -8,6 +10,8 @@ help:
 	@echo "  clean-test               to remove test artifacts"
 	@echo "  develop                  to install (or update) all packages required for development"
 	@echo "  isort                    to run isort on the whole project"
+	@echo "  open-project-docs        to open the project documentation in the default browser"
+	@echo "  serve-project-docs       to serve the project documentation in the default browser"
 	@echo "  test                     to run unit tests on every Python version with tox"
 
 
@@ -33,6 +37,13 @@ develop:
 
 isort:
 	isort --recursive hooks/
+
+open-project-docs:
+	python -c "import os, webbrowser; webbrowser.open('file://{}/.tox/project-docs/tmp/my-project/.tox/docs/tmp/html/index.html'.format(os.getcwd()))"
+
+serve-project-docs:
+	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
+	cd .tox/project-docs/tmp/my-project/.tox/docs/tmp/html/; python -m http.server $(PORT)
 
 test:
 	tox
