@@ -12,7 +12,7 @@ class Email(object):
     EMAIL_HOST_PASSWORD = values.SecretValue()
 
 
-class MailgunEmail(object):
+class Mailgun(object):
     """Email settings for Mailgun."""
 
     EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
