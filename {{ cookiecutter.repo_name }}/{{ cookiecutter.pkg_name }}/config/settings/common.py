@@ -157,7 +157,8 @@ class Common(Configuration):
                 ],
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                # 'string_if_invalid': values.Value('', environ_name='TEMPLATE_STRING_IF_INVALID'),
+                'string_if_invalid': values.Value('',
+                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'),
             },
         },
     ]

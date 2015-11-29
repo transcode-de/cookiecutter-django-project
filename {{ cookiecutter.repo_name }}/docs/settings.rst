@@ -127,6 +127,20 @@ using environment variables.
         | production with ``DEBUG`` turned
         | on.
     * - ``django.conf.settings``
+      - ``DEFAULT_CONN_MAX_AGE``
+      - ``600``
+      - ``DJANGO_DEFAULT_CONN_MAX_AGE``
+      - | The lifetime of a database
+        | connection, in seconds.
+    * - ``django.conf.settings``
+      - ``DJANGO_TEMPLATES_STRING_IF_INVALID``
+      - ``''``
+      - ``DJANGO_DJANGO_TEMPLATES_STRING_IF_INVALID``
+      - | The output, as a string, that the
+        | template system should use for
+        | invalid (e.g. misspelled)
+        | variables.
+    * - ``django.conf.settings``
       - ``DEFAULT_FROM_EMAIL``
       - ``'noreply@example.com'``
       - ``DJANGO_DEFAULT_FROM_EMAIL``
