@@ -3,7 +3,7 @@ from configurations import values
 
 
 class Databases(object):
-    """Settings for local PostgreSQL databases."""
+    """Settings for PostgreSQL databases."""
 
     DATABASES = {
         'default': dj_database_url.config(env='DEFAULT_DATABASE_URL')

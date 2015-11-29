@@ -2,7 +2,7 @@ from configurations import values
 
 
 class Email(object):
-    """Default Email settings for public projects."""
+    """Email settings for SMTP."""
 
     EMAIL_HOST = values.Value('localhost')
     EMAIL_PORT = values.IntegerValue(465)
@@ -13,7 +13,7 @@ class Email(object):
 
 
 class MailgunEmail(object):
-    """Email settings for public projects using Mailgun."""
+    """Email settings for Mailgun."""
 
     EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
     MAILGUN_ACCESS_KEY = values.SecretValue()
