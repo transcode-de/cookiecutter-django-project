@@ -53,7 +53,7 @@ class SSL(object):
     SECURE_SSL_REDIRECT = True
 
 
-class Prod(Public):
+class Prod(Public, SSL):
     """Settings for production server."""
 
     pass
