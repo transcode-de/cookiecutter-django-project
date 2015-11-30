@@ -155,6 +155,7 @@ class Common(Configuration):
                     'django.contrib.messages.context_processors.messages',
                     '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
+                'debug': values.BooleanValue(False, environ_name='TEMPLATE_DEBUG'),
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
                 'string_if_invalid': values.Value('',
@@ -162,6 +163,9 @@ class Common(Configuration):
             },
         },
     ]
+
+    # the following line is only necessary because django-template-debug uses it
+    TEMPLATE_DEBUG = TEMPLATES[0]['OPTIONS'].get('debug', False)
 
     FIXTURE_DIRS = (
         os.path.join(BaseDir.BASE_DIR, 'fixtures'),
