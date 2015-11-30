@@ -88,6 +88,7 @@ Development Tools
 * `bumpversion <https://github.com/peritus/bumpversion>`_
 * `django-debug-toolbar <https://github.com/django-debug-toolbar/django-debug-toolbar>`_
 * `django-devserver <http://github.com/dcramer/django-devserver>`_
+* `django-template-debug <https://github.com/calebsmith/django-template-debug>`_
 
     * `sqlparse <https://github.com/andialbrecht/sqlparse>`_
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
