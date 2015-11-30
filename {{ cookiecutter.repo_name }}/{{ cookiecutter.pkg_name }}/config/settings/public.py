@@ -46,7 +46,7 @@ class Stage(Public):
 
 
 class SSL(object):
-    """Settings for SSL"""
+    """Settings for SSL."""
 
     SECURE_SSL_HOST = values.Value('{{ cookiecutter.domain }}')
 
