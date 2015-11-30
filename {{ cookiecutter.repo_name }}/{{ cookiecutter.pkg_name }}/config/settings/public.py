@@ -45,6 +45,14 @@ class Stage(Public):
     pass
 
 
+class SSL(object):
+    """Settings for SSL"""
+
+    SECURE_SSL_HOST = values.Value('{{ cookiecutter.domain }}')
+
+    SECURE_SSL_REDIRECT = True
+
+
 class Prod(Public):
     """Settings for production server."""
 
