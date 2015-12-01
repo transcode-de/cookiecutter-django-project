@@ -13,14 +13,16 @@ env:
   - TOXENV=docs
   - TOXENV=flake8
   - TOXENV=isort
-  - TOXENV=project-develop
-  - TOXENV=project-docs
-  - TOXENV=project-flake8
-  - TOXENV=project-isort
-  - TOXENV=project-manifest
-  - TOXENV=project-pep257
-  - TOXENV=project-py27
-  - TOXENV=project-py35
+  - TOXENV=project-tox-docs
+  - TOXENV=project-tox-flake8
+  - TOXENV=project-tox-isort
+  - TOXENV=project-tox-manifest
+  - TOXENV=project-tox-pep257
+  - TOXENV=project-tox-py27
+  - TOXENV=project-tox-py35
+  - TOXENV=py27-project-develop
+  - TOXENV=py34-project-develop
+  - TOXENV=py35-project-develop
 services:
   - postgresql
 addons:
