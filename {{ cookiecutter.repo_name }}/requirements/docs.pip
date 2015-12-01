@@ -1,5 +1,3 @@
 # This file is used for all packages required to build the documentation.
 
-# There is a bug with Python 3.5 (https://github.com/sphinx-doc/sphinx/issues/1945)
-# Until there is no new Sphinx release, we have to use the following version:
-https://github.com/sphinx-doc/sphinx/archive/89d7ab6941f0fce12961b5f2a81034aa736525e5.zip
+Sphinx==1.3.2
