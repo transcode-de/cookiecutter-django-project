@@ -1,4 +1,5 @@
 #!/bin/bash
+export PYTHONIOENCODING=UTF-8
 cd my-project
 
 # Set up the development environment
