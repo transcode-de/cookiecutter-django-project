@@ -1,25 +1,12 @@
--   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: cf550fcab3f12015f8676b8278b30e1a5bc10e70
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: e306ff3b7d0d9a6fc7d128ef9ca2e0b6e6e76e8f
     hooks:
-    -   id: autopep8-wrapper
-        args:
-        - --in-place
-        - --exclude = docs/*.py,migrations/*.py
-        - --ignore = E128
-        - --max-line-length = 99
-        - --recursive
-    -   id: check-added-large-files
-    -   id: check-case-conflict
-    -   id: check-docstring-first
-    -   id: check-json
-    -   id: check-merge-conflict
-    -   id: check-xml
-    -   id: check-yaml
     -   id: debug-statements
-    -   id: double-quote-string-fixer
-    -   id: end-of-file-fixer
     -   id: flake8
-    -   id: name-tests-test
-        args: ['--django']
-    -   id: requirements-txt-fixer
-    -   id: trailing-whitespace
+    -   id: check-json
+    -   id: check-case-conflict
+
+-   repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
+    sha: 'ebb1b1bb080b0c960bcf37cf81d09185cec4fc6d'
+    hooks:
+    -   id: pep257
