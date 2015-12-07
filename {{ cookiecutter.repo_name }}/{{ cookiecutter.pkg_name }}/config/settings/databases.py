@@ -1,28 +1,13 @@
+import dj_database_url
 from configurations import values
 
 
-class PostgreSQLDatabases(object):
-    """Settings for local PostgreSQL databases."""
-    DATABASES = values.DictValue({
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '{{ cookiecutter.repo_name }}',
-            'USER': '{{ cookiecutter.repo_name }}',
-            'PASSWORD': '{{ cookiecutter.repo_name }}',
-            'HOST': 'localhost',
-            'CONN_MAX_AGE': 600,
-        },
-    })
+class Databases(object):
+    """Settings for PostgreSQL databases."""
 
-
-class EmptyDatabases(object):
-    """Empty databases settings, used to force to overwrite them."""
-    DATABASES = values.DictValue({
-        'default': {
-            'ENGINE': '',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-        },
-    })
+    DATABASES = {
+        'default': dj_database_url.config(env='DEFAULT_DATABASE_URL')
+    }
+    # Number of seconds database connections should persist for
+    DATABASES['default']['CONN_MAX_AGE'] = values.IntegerValue(600, environ_prefix='',
+        environ_name='DEFAULT_CONN_MAX_AGE')
