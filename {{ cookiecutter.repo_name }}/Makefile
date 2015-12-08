@@ -12,6 +12,8 @@ $(1):
 endif
 endef
 
+files := $(addprefix requirements/, $(shell ls requirements))
+
 $(eval $(call CMDS, $(cmd)))
 
 .PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd compile-requirements \
@@ -82,10 +84,8 @@ cmd:
 
 compile-requirements:
 	pip install pip-tools==1.3.0
-	pip-compile requirements/dev.in
-	pip-compile requirements/docs.in
-	pip-compile requirements/forks.in
-	pip-compile requirements/test.in
+	$(foreach file,$(files),pip-compile $(file) -o $(file:in=pip);)
+
 
 coverage:
 	envdir envs/$(ENV) coverage run -m pytest $(TEST_ARGS) tests/
