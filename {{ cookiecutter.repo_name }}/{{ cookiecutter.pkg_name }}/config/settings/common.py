@@ -2,28 +2,29 @@ import os
 
 from configurations import Configuration, values
 
+from .values import AdminsValue
+
 
 class BaseDir(object):
-    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    """Provide absolute path to project package root directory as BASE_DIR setting.
+
+    Use it to build your absolute paths like this::
+
+        os.path.join(BaseDir.BASE_DIR, 'templates')
+    """
+
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-class Email(object):
-    """Email settings for public projects."""
-    EMAIL_HOST = values.Value('localhost')
-    EMAIL_PORT = values.IntegerValue(25)  # Alternate TLS port is 587
-    EMAIL_USE_TLS = values.BooleanValue(True)
-    EMAIL_HOST_USER = values.Value('{{ cookiecutter.email }}')
-    EMAIL_HOST_PASSWORD = values.SecretValue()
-
-
 class Common(Configuration):
+    """Common configuration base class."""
+
     SECRET_KEY = '(_j4e0=pbe(b+b1$^ch_48be0=gszglcgfzz^dy=(gnx=@m*b7'
 
     DEBUG = values.BooleanValue(False)
 
-    ADMINS = (
-        ('transcode', 'traceback@transcode.de'),
+    ADMINS = AdminsValue(
+        (('{{ cookiecutter.author_name }}', '{{ cookiecutter.error_email }}'),)
     )
     MANAGERS = ADMINS
 
@@ -95,7 +96,7 @@ class Common(Configuration):
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/var/www/example.com/media/"
-    MEDIA_ROOT = os.path.join(BaseDir.BASE_DIR, 'media')
+    MEDIA_ROOT = values.PathValue(os.path.join(BaseDir.BASE_DIR, 'media'))
 
     # URL that handles the media served from MEDIA_ROOT. Make sure to use a
     # trailing slash.
@@ -106,7 +107,7 @@ class Common(Configuration):
     # Don't put anything in this directory yourself; store your static files
     # in apps' "static/" subdirectories and in STATICFILES_DIRS.
     # Example: "/var/www/example.com/static/"
-    STATIC_ROOT = os.path.join(BaseDir.BASE_DIR, 'static_root')
+    STATIC_ROOT = values.PathValue(os.path.join(BaseDir.BASE_DIR, 'static_root'))
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/dev/howto/static-files/
@@ -137,9 +138,9 @@ class Common(Configuration):
         'django.middleware.security.SecurityMiddleware',
     )
 
-    ROOT_URLCONF = 'config.urls'
+    ROOT_URLCONF = '{{ cookiecutter.pkg_name }}.config.urls'
 
-    WSGI_APPLICATION = 'config.wsgi.application'
+    WSGI_APPLICATION = '{{ cookiecutter.pkg_name }}.config.wsgi.application'
 
     TEMPLATES = [
         {
@@ -152,11 +153,12 @@ class Common(Configuration):
                     'django.template.context_processors.request',
                     'django.contrib.auth.context_processors.auth',
                     'django.contrib.messages.context_processors.messages',
-                    'config.context_processors.django_version',
+                    '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                'string_if_invalid': values.Value('', environ_name='TEMPLATE_STRING_IF_INVALID'),
+                'string_if_invalid': values.Value('',
+                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'),
             },
         },
     ]
@@ -183,10 +185,5 @@ class Common(Configuration):
     GRAPPELLI_ADMIN_TITLE = '{{ cookiecutter.project_name }} Admin'
 
     EMAIL_SUBJECT_PREFIX = '[{{ cookiecutter.project_name }}]'
-    DEFAULT_FROM_EMAIL = '{{ cookiecutter.email }}'
+    DEFAULT_FROM_EMAIL = values.EmailValue('{{ cookiecutter.email }}')
     SERVER_EMAIL = DEFAULT_FROM_EMAIL
-
-
-class Public(Email, Common):
-    """Settings for public projects."""
-    SECRET_KEY = values.SecretValue()

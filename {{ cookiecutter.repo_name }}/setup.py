@@ -13,18 +13,28 @@ def read(*paths):
     with open(os.path.join(*paths), 'r', 'utf-8') as f:
         return f.read()
 
+extras_require = {
+    'mailgun': [
+        'django-mailgun==0.8.0',
+    ],
+    'raven': [
+        'raven==5.8.1',
+    ],
+}
+
 requires = [
-    'Django==1.8.2',
+    'Django==1.8.7',
     'dj-database-url==0.3.0',
-    'django-braces==1.4.0',
+    'django-braces==1.8.1',
     # django-configurations 0.8 does not work with Django 1.8. A fork has been
-    # added to requirements/forks.txt that supports Django 1.8.
+    # added to requirements/forks.pip that supports Django 1.8.
     # 'django-configurations==0.8',
-    'django-crispy-forms==1.4.0',
-    'django-grappelli==2.6.3',
+    'django-crispy-forms==1.5.2',
+    'django-grappelli==2.7.2',
+    'django-model-utils==2.3.1',
     'envdir==0.7',
-    'psycopg2==2.5.4',
-    'pytz==2014.10',
+    'psycopg2==2.6.1',
+    'pytz==2015.7',
 ]
 
 setup(
@@ -36,11 +46,12 @@ setup(
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
+    scripts=['manage.py'],
     install_requires=requires,
     license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Framework :: Django',
         'Intended Audience :: Developers',
         {% if cookiecutter.license|lower == 'bsd' -%}
         'License :: OSI Approved :: BSD License',
@@ -51,8 +62,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ],
 )
