@@ -81,7 +81,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 compile-requirements:
-	pip install git+https://github.com/nvie/pip-tools.git@future
+	pip install pip-tools==1.3.0
 	pip-compile requirements/dev.in
 	pip-compile requirements/docs.in
 	pip-compile requirements/forks.in
