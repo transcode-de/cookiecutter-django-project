@@ -8,7 +8,7 @@ exclude .bumpversion.cfg
 exclude .editorconfig
 
 recursive-include docs *.rst .gitkeep conf.py Makefile make.bat
-recursive-include requirements *.pip
+recursive-include requirements *.in *.pip
 
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
