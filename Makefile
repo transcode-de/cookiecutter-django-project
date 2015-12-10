@@ -39,11 +39,11 @@ isort:
 	isort --recursive hooks/
 
 open-project-docs:
-	python -c "import os, webbrowser; webbrowser.open('file://{}/.tox/project-docs/tmp/my-project/.tox/docs/tmp/html/index.html'.format(os.getcwd()))"
+	python -c "import os, webbrowser; webbrowser.open('file://{}/.tox/project-tox-docs/tmp/my-project/.tox/docs/tmp/html/index.html'.format(os.getcwd()))"
 
 serve-project-docs:
 	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
-	cd .tox/project-docs/tmp/my-project/.tox/docs/tmp/html/; python -m http.server $(PORT)
+	cd .tox/project-tox-docs/tmp/my-project/.tox/docs/tmp/html/; python -m http.server $(PORT)
 
 test:
 	tox
