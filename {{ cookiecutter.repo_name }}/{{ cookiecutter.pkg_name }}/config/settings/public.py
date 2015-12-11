@@ -39,21 +39,21 @@ class Public(email.Email, databases.Databases, common.Common):
     SILENCED_SYSTEM_CHECKS = values.ListValue([])
 
 
-class Stage(Public):
-    """Settings for staging server."""
-
-    pass
-
-
 class SSL(object):
-    """Settings for SSL."""
+    """Settings for SSL-enabled servers."""
 
     SECURE_SSL_HOST = values.Value('{{ cookiecutter.domain }}')
 
     SECURE_SSL_REDIRECT = True
 
 
+class Stage(Public):
+    """Settings for staging servers."""
+
+    pass
+
+
 class Prod(Public, SSL):
-    """Settings for production server."""
+    """Settings for production servers."""
 
     pass
