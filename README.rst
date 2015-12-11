@@ -29,8 +29,8 @@ What makes this cookiecutter template special?
 * All Django settings can be easily configured for different environments like
   ``dev`` or ``prod`` using environment variables
 * Django third-party packages like django-braces, django-crispy-forms,
-  django-debug-toolbar, django-devserver and django-model-utils are already
-  installed
+  django-debug-toolbar, django-devserver, django-model-utils and
+  django-template-debug are already installed
 * IPython for a powerfull Python and Django shell
 * A set of basic Django HTML templates is included
 * Includes a ``Makefile`` which helps with all the every-day tasks
@@ -92,6 +92,7 @@ Development Tools
     * `sqlparse <https://github.com/andialbrecht/sqlparse>`_
     * `Werkzeug <http://werkzeug.pocoo.org/>`_
 
+* `django-template-debug <https://github.com/calebsmith/django-template-debug>`_
 * `Glances <https://github.com/nicolargo/glances>`_
 * `IPython <http://ipython.org/>`_
 * `pdb++ <https://bitbucket.org/antocuni/pdb/overview>`_

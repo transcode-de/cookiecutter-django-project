@@ -49,8 +49,7 @@ htmlcov
 output/*.html
 output/*/index.html
 
-# Bower and npm
-bower_components
+# npm
 node_modules
 
 # Sphinx

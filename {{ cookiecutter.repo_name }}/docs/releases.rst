@@ -98,13 +98,13 @@ So create a new integration branch to merge ``master`` into ``develop``:
 
     $ git checkout -b merge-master-into-develop-for-release-1.0.0
 
-After that fetch the latest changes, rebase the integration branch and push
+After that fetch the latest changes, merge with the integration branch and push
 it:
 
 ::
 
     $ git fetch
-    $ git pull --rebase
+    $ git merge origin/develop
     $ git push --set-upstream origin merge-master-into-develop-for-release-1.0.0
 
 Now that we have the merge of ``master`` into ``develop`` in a separate

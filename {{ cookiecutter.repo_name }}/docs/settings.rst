@@ -141,6 +141,12 @@ using environment variables.
         | invalid (e.g. misspelled)
         | variables.
     * - ``django.conf.settings``
+      - ``DJANGO_TEMPLATES_TEMPLATE_DEBUG``
+      - ``False``
+      - ``DJANGO_DJANGO_TEMPLATES_TEMPLATE_DEBUG``
+      - | A boolean that turns on/off template debug
+        | mode.
+    * - ``django.conf.settings``
       - ``DEFAULT_FROM_EMAIL``
       - ``'noreply@example.com'``
       - ``DJANGO_DEFAULT_FROM_EMAIL``
