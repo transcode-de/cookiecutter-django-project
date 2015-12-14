@@ -11,7 +11,6 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
 
 import alabaster
@@ -30,6 +29,7 @@ needs_sphinx = '1.3'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'alabaster',
@@ -286,7 +286,16 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
+autodoc_default_flags = ['members', 'undoc-members']
+
 linkcheck_ignore = [
     # Uncomment the next line if the repository on GitHub is private.
     #r'https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}.*',
 ]
+
+# django-configurations setup
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.pkg_name }}.config.settings.dev')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'Dev')
+
+from configurations import importer
+importer.install()

@@ -7,13 +7,14 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   installation
-   settings
-   releases
-   deployment
-   contributing
+    installation
+    settings
+    releases
+    deployment
+    contributing
+    ref/index
 
 Indices and tables
 ==================
