@@ -121,13 +121,13 @@ class Common(Configuration):
         os.path.join(BaseDir.BASE_DIR, 'static'),
     )
 
-    STATICFILES_FINDERS = values.BackendsValue([
+    STATICFILES_FINDERS = values.ListValue([
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
         'django.contrib.staticfiles.finders.FileSystemFinder',
         #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
     ])
 
-    MIDDLEWARE_CLASSES = values.BackendsValue([
+    MIDDLEWARE_CLASSES = values.ListValue([
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',

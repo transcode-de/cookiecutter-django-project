@@ -26,7 +26,7 @@ class Dev(databases.Databases, common.Common):
             addr = '127.0.0.1'
         return addr
 
-    DEVSERVER_MODULES = values.BackendsValue([
+    DEVSERVER_MODULES = values.ListValue([
         'devserver.modules.sql.SQLRealTimeModule',
         'devserver.modules.sql.SQLSummaryModule',
         'devserver.modules.profile.ProfileSummaryModule',

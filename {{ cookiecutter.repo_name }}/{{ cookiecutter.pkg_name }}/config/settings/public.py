@@ -18,7 +18,7 @@ class Raven(object):
 class Sentry404(Raven):
     """Log 404 events to the Sentry server."""
 
-    MIDDLEWARE_CLASSES = values.BackendsValue([
+    MIDDLEWARE_CLASSES = values.ListValue([
         'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
     ]) + common.Common.MIDDLEWARE_CLASSES
 
