@@ -7,7 +7,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
 Contents:
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     installation
     settings
