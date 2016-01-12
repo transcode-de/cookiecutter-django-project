@@ -40,7 +40,7 @@ class Common(Configuration):
             'require_debug_true': {
                 '()': 'django.utils.log.RequireDebugTrue',
             },
-           'require_mail_admins_true': {
+            'require_mail_admins_true': {
                 '()': '{{ cookiecutter.pkg_name }}.config.settings.log.RequireMailAdminsTrue',
             },
         },
