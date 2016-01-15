@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/
 """
 import os  # isort:skip
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.pkg_name }}.config.settings.dev')
-os.environ.setdefault('DJANGO_CONFIGURATION', 'Dev')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'Development')
 
 from configurations.wsgi import get_wsgi_application  # isort:skip
 application = get_wsgi_application()
