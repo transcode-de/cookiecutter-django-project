@@ -155,12 +155,16 @@ class Common(Configuration):
                     'django.contrib.messages.context_processors.messages',
                     '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
-                'debug': values.BooleanValue(False,
-                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'),
+                'debug': values.BooleanValue(
+                    False,
+                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'
+                ),
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                'string_if_invalid': values.Value('',
-                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'),
+                'string_if_invalid': values.Value(
+                    '',
+                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'
+                ),
             },
         },
     ]
