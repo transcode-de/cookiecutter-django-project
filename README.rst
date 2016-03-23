@@ -107,7 +107,7 @@ Lint Tools
 * `doc8 <https://github.com/openstack/doc8>`_
 * `flake8 <https://gitlab.com/pycqa/flake8>`_
 * `isort <https://github.com/timothycrosley/isort>`_
-* `pep257 <https://github.com/GreenSteam/pep257>`_
+* `pydocstyle <https://github.com/PyCQA/pydocstyle>`_
 
 Testing
 -------

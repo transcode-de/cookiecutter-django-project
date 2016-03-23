@@ -17,7 +17,7 @@ env:
   - TOXENV=project-tox-flake8
   - TOXENV=project-tox-isort
   - TOXENV=project-tox-manifest
-  - TOXENV=project-tox-pep257
+  - TOXENV=project-tox-pydocstyle
   - TOXENV=project-tox-py27
   - TOXENV=project-tox-py35
   - TOXENV=py27-project-develop
