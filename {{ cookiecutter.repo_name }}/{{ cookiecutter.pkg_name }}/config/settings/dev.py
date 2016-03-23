@@ -18,7 +18,7 @@ class Development(databases.Databases, common.Common):
     DEVSERVER_ARGS = values.ListValue([])
 
     @property
-    def DEVSERVER_DEFAULT_ADDR(self):
+    def DEVSERVER_DEFAULT_ADDR(self):  # noqa
         """Return the default address to bind devserver to."""
         if 'vagrant' in socket.gethostname():
             addr = '0.0.0.0'
@@ -40,7 +40,7 @@ class Development(databases.Databases, common.Common):
     INSTALLED_APPS = ('devserver',) + common.Common.INSTALLED_APPS + ('debug_toolbar',)
 
     @property
-    def INTERNAL_IPS(self):
+    def INTERNAL_IPS(self):  # noqa
         """Return a tuple of IP addresses, as strings.
 
         Detect a Vagrant box by looking at the hostname. Return the gateway IP
