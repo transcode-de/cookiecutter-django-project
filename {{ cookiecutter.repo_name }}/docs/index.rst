@@ -10,7 +10,10 @@ Contents:
    :maxdepth: 2
 
    installation
+   settings
+   releases
    deployment
+   contributing
 
 Indices and tables
 ==================

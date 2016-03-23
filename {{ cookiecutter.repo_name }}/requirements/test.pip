@@ -1,0 +1,13 @@
+# This file is used for local testing with and without tox as well as for
+# testing on continuous integration servers.
+
+-r ./forks.pip
+
+coverage==4.0.3
+django-coverage-plugin==1.1
+fauxfactory==2.0.8
+freezegun==0.3.5
+pytest-django==2.9.1
+pytest-factoryboy==1.1.4
+pytest-faker==1.1.0
+pytest==2.8.3

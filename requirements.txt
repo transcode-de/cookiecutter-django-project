@@ -1,2 +1,0 @@
-cookiecutter==0.9.1
-tox==1.9.0

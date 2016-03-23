@@ -1,4 +1,7 @@
 *.py[cod]
+*~
+.python-version
+__pycache__
 
 # C extensions
 *.so
@@ -23,10 +26,14 @@ envs/*
 !envs/dev
 
 # Django
-media
-static_root
+{{ cookiecutter.pkg_name }}/media/*
+!{{ cookiecutter.pkg_name }}/media/.gitkeep
+{{ cookiecutter.pkg_name }}/static_root/*
+!{{ cookiecutter.pkg_name }}/static_root/.gitkeep
 
-# Installer logs
+# Logs
+*.log
+*.log.*
 pip-log.txt
 
 # Unit test / coverage reports
@@ -42,8 +49,9 @@ htmlcov
 output/*.html
 output/*/index.html
 
-# Bower
-bower_components
+# npm
+node_modules
 
 # Sphinx
 docs/_build
+!docs/_static/.gitkeep

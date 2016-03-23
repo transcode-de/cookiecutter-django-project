@@ -1,0 +1,4 @@
+# This file is used for local testing with tox.
+
+tox-pyenv==1.0.2
+tox==2.2.1

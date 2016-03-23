@@ -1,0 +1,4 @@
+# This file is used for all packages required for local development.
+
+cookiecutter==1.3.0
+isort==4.2.2

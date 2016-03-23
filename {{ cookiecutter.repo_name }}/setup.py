@@ -5,7 +5,6 @@ from codecs import open
 
 from setuptools import find_packages, setup
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -14,51 +13,43 @@ def read(*paths):
     with open(os.path.join(*paths), 'r', 'utf-8') as f:
         return f.read()
 
+extras_require = {
+    'mailgun': [
+        'django-mailgun==0.8.0',
+    ],
+    'raven': [
+        'raven==5.8.1',
+    ],
+}
+
 requires = [
-    'Django==1.7.6',
+    'Django==1.8.7',
     'dj-database-url==0.3.0',
-    'django-braces==1.4.0',
-    'django-configurations==0.8',
-    'django-crispy-forms==1.4.0',
-    'django-grappelli==2.6.3',
+    'django-braces==1.8.1',
+    'django-configurations==1.0',
+    'django-crispy-forms==1.5.2',
+    'django-grappelli==2.7.2',
+    'django-model-utils==2.4',
     'envdir==0.7',
-    'psycopg2==2.5.4',
-    'pytz==2014.10',
-]
-
-docs_requires = [
-    'Sphinx==1.2.2',
-]
-
-tests_requires = [
-    'coverage==3.7.1',
-    'factory_boy==2.4.1',
-    'freezegun==0.2.8',
-    'isort==3.9.4',
-    'pytest-django==2.7.0',
-    'pytest-pythonpath==0.6',
-    'pytest==2.6.4',
-    'tox==1.9.0',
+    'psycopg2==2.6.1',
+    'pytz==2015.7',
 ]
 
 setup(
     name='{{ cookiecutter.pkg_name }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.description }}',
-    long_description=read(os.path.join(BASE_DIR, 'README.rst')),
-    author='transcode',
+    long_description=read(BASE_DIR, 'README.rst'),
+    author='{{ cookiecutter.author_name }}',
     author_email='{{ cookiecutter.email }}',
     packages=find_packages(),
     include_package_data=True,
+    scripts=['manage.py'],
     install_requires=requires,
-    extras_require={
-        'docs': docs_requires,
-        'tests': tests_requires,
-    },
     license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Framework :: Django',
         'Intended Audience :: Developers',
         {% if cookiecutter.license|lower == 'bsd' -%}
         'License :: OSI Approved :: BSD License',
@@ -69,8 +60,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ],
 )
