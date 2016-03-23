@@ -33,6 +33,7 @@ requires = [
     'envdir==0.7',
     'psycopg2==2.6.1',
     'pytz==2015.7',
+    'rules==1.1.1',
 ]
 
 setup(
