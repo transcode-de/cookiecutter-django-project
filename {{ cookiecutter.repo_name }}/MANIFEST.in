@@ -1,11 +1,16 @@
+include *.js
 include *.rst
+include *.json
 include LICENSE
 include Makefile
 include manage.py
+include MANIFEST.in
+include package.json
 include tox.ini
 
 exclude .bumpversion.cfg
 exclude .editorconfig
+exclude Procfile
 exclude pep257.sh
 
 recursive-include docs *.rst .gitkeep conf.py Makefile make.bat
@@ -13,11 +18,18 @@ recursive-include requirements *.pip
 
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
+graft bin
+graft docs
+prune docs/_build
 
 graft {{ cookiecutter.pkg_name }}
+graft {{ cookiecutter.pkg_name }}/webpack-stats-development.json
 graft tests
 
 prune envs
 prune {{ cookiecutter.pkg_name }}/.cache
+prune {{ cookiecutter.pkg_name }}/assets
 prune {{ cookiecutter.pkg_name }}/media
+prune {{ cookiecutter.pkg_name }}/media/.gitkeep
+prune {{ cookiecutter.pkg_name }}/static/bundles-development
 prune {{ cookiecutter.pkg_name }}/static_root

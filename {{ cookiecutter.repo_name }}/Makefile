@@ -14,15 +14,16 @@ endef
 
 $(eval $(call CMDS, $(cmd)))
 
-.PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-    create-db develop docs isort migrate open-docs serve-docs runserver shell startapp test \
-    test-all test-upload upload
+.PHONY: help clean clean-build clean-bundles clean-docs clean-pyc clean-test cmd coverage \
+	coverage-html create-db develop docs isort migrate open-docs serve-docs runserver shell \
+	startapp test test-all test-upload upload
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
-	@echo "  clean                    to remove all build, test, coverage and Python artifacts (does not remove backups)"
+	@echo "  clean                    to remove all build, test, coverage and Python artifacts as well as webpack development bundles (does not remove backups)"
 	@echo "  clean-backups            to remove backup files created by editors and Git"
 	@echo "  clean-build              to remove build artifacts"
+	@echo "  clean-bundles            to to remove webpack development bundles"
 	@echo "  clean-docs               to remove documentation artifacts"
 	@echo "  clean-pyc                to remove Python file artifacts"
 	@echo "  clean-test               to remove test and coverage artifacts"
@@ -48,8 +49,7 @@ help:
 	@echo "  test-upload              to upload a release to test PyPI using twine"
 	@echo "  upload                   to upload a release using twine"
 
-
-clean: clean-build clean-docs clean-test clean-pyc
+clean: clean-build clean-bundles clean-docs clean-test clean-pyc
 
 clean-backups:
 	find . -name '*~' -delete
@@ -60,6 +60,10 @@ clean-build:
 	rm -fr build/
 	rm -fr dist/
 	rm -fr *.egg-info
+
+clean-bundles:
+	rm -f {{ cookiecutter.pkg_name }}/webpack-stats-development.json
+	rm -fr {{ cookiecutter.pkg_name }}/static/bundles-development/
 
 clean-docs:
 	$(MAKE) -C docs clean BUILDDIR=$(BUILDDIR)
@@ -79,6 +83,7 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 coverage:
+	npm run build-development
 	envdir envs/$(ENV) coverage run -m pytest $(TEST_ARGS) tests/
 	coverage report
 
@@ -102,6 +107,7 @@ develop:
 	pip install -U pip setuptools wheel
 	pip install -U -c requirements/constraints.pip -e .
 	pip install -U -c requirements/constraints.pip -r requirements/dev.pip
+	npm install
 
 dist: clean
 	python setup.py sdist bdist_wheel
@@ -137,6 +143,7 @@ startapp:
 	echo "Don't forget to add '{{ cookiecutter.pkg_name }}.apps."$$app_name".apps."$$app_name_title"Config' to INSTALLED_APPS in '{{ cookiecutter.pkg_name }}.config/settings/common.py'!"
 
 test:
+	npm run build-development
 	envdir envs/$(ENV) python -m pytest $(TEST_ARGS) tests/
 
 test-all:

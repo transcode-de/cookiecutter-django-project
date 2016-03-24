@@ -1,0 +1,2 @@
+web: PYTHONUNBUFFERED=true make runserver PORT=8000
+webpack: npm run watch
