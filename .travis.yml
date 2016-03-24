@@ -20,9 +20,9 @@ env:
   - TOXENV=project-tox-pep257
   - TOXENV=project-tox-py27-npm-link
   - TOXENV=project-tox-py35-npm-link
-  - TOXENV=py27-project-develop-copy
-  - TOXENV=py34-project-develop-copy
-  - TOXENV=py35-project-develop-copy
+  - TOXENV=py27-project-develop-npm-copy
+  - TOXENV=py34-project-develop-npm-copy
+  - TOXENV=py35-project-develop-npm-copy
 services:
   - postgresql
 addons:
