@@ -1,0 +1,39 @@
+{
+  "name": "{{ cookiecutter.pkg_name }}",
+  "version": "0.1.0",
+  "description": "{{ cookiecutter.description }}",
+  "main": "webpack.base.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "babel-core": "^6.5.1",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "browser-sync": "^2.11.1",
+    "browser-sync-webpack-plugin": "^1.0.1",
+    "css-loader": "^0.23.1",
+    "foundation-sites": "~6.1.1",
+    "node-sass": "^3.4.2",
+    "postcss-loader": "^0.8.0",
+    "sass-loader": "^3.1.2",
+    "standard": "^6.0.5",
+    "standard-format": "^2.1.0",
+    "script-loader": "^0.6.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.11",
+    "webpack-bundle-tracker": "0.0.92"
+  },
+  "scripts": {
+    "build-development": "webpack --progress --colors -d --config webpack.development.config.js",
+    "build-production": "webpack --progress --colors --config webpack.production.config.js",
+    "watch": "webpack --progress --colors --watch -d --config webpack.development.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.pkg_name }}.git"
+  },
+  "author": "{{ cookiecutter.author_name }}",
+  "license": "UNLICENSED",
+  "homepage": "{{ cookiecutter.domain }}",
+  "private": true
+}
