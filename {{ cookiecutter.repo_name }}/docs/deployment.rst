@@ -101,6 +101,27 @@ environment:
 
         $ echo "export ENV=prod" >> ~/.bashrc
 
+Create and fill the directories for user uploads and static files
+=================================================================
+
+Create the ``MEDIA_ROOT`` directory for user uploads. It must be outside of the
+:file:`site-packages` directory, so that new files can be created. Also set
+``MEDIA_URL`` to the URL serving the ``MEDIA_ROOT`` directory.
+
+If you serve the static files from inside the package you only have to set
+``STATIC_URL`` to the URL serving the ``STATIC_ROOT`` directory.
+
+If you use a CDN or Amazon S3 for serving static files, you have to download
+the package, extract the static files and copy them to the new location:
+
+::
+
+    $ tar -xzvf kmncms-0.1.0.tar.gz
+    $ cp -Rv {{ cookiecutter.pkg_name }}/static_root /home/www/static.example.com
+
+Put the URL serving this directory into ``STATIC_URL``.
+
+
 Migrate the database
 ====================
 
@@ -130,13 +151,3 @@ After that create a new superuser:
 ::
 
     $ envdir envs/prod python manage.py createsuperuser
-
-Create and fill the directories for user uploads and static files
-=================================================================
-
-Finally create the ``MEDIA_ROOT`` and ``STATIC_ROOT`` directories and collect
-the static files into the ``STATIC_ROOT`` directory:
-
-::
-
-    $ envdir envs/prod python manage.py collectstatic

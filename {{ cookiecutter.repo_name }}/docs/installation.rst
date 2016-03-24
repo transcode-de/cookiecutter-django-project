@@ -111,6 +111,18 @@ versions to use:
     The first version passed to :program:`pyenv local` will be the main version
     used for the project.
 
+Node.js and npm
+---------------
+
+`Node.js <https://nodejs.org/>`_ is an asynchronous event driven framework,
+similar in design to and influenced by systems like Ruby's Event Machine or
+Python's Twisted. The `npm <https://www.npmjs.com/>`_ package manager is
+bundled with Node.js. Both will be used to install packages and take care of
+tasks for the frontend.
+
+Visit the `Node.js download page <https://nodejs.org/en/download/package-manager/>`_
+to figure out how to install both.
+
 PostgreSQL
 ----------
 
@@ -170,8 +182,8 @@ choose the default for all questions being asked during the initialzaion
 
     $ git-flow init
 
-Install Python packages
------------------------
+Install Python and JavaScript packages
+--------------------------------------
 
 First create a new virtualenv for the project using virtualenvwrapper:
 
@@ -186,7 +198,8 @@ Now you can install the packages for development:
     $ make develop
 
 You should run this command every time a requirement changes to update your
-development environment.
+development environment. It will install or update all required Python and
+JavaScript packages.
 
 Create the database
 -------------------
@@ -230,9 +243,34 @@ And to create a new Django superuser:
 Start the development webserver
 -------------------------------
 
-Finally start the development webserver:
+Finally start Django's development webserver:
 
 ::
+
+    $ make runserver
+
+But this way `webpack <https://webpack.github.io/>`_ won't be started to build
+the JavaScript and CSS bundle. So use
+`Honcho <https://github.com/nickstenning/honcho>`_ to start both, runserver and
+webpack:
+
+::
+
+    $ honcho start
+
+Now open http://localhost:3000/ in your Browser. This is Django's development
+webserver, but it's proxied through `Browsersync
+<https://www.browsersync.io/>`_. If you open the URL in different browsers,
+Browsersync will synchronize them. If you click in one browser, the others will
+automatically do the same. It also watches all JavaScript, SASS and Python
+files. If any of these files is changed, Browsersync reloads all synchronized
+browsers. If you open http://localhost:3001/ you will see Browsersync's UI. You
+can use it to configure it, for example you can set a network throttle to
+emulate slow connections.
+
+If you don't want to use Honcho you can also start Django's development
+webserver and webpack with Browsersync manually. Of course you will need two
+terminals for that. In the first terminal start Django's development webserver:
 
     $ make runserver
 

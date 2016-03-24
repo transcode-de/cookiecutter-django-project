@@ -287,6 +287,9 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 linkcheck_ignore = [
+    r'http(s)?://127.0.0.1.*',
+    r'http(s)?://localhost.*',
+    r'https://www.browsersync.io/',  # "Connection reset by peer" error
     # Uncomment the next line if the repository on GitHub is private.
     #r'https://github.com/{{ cookiecutter.github_account }}/{{ cookiecutter.repo_name }}.*',
 ]
