@@ -17,7 +17,7 @@ if [ "${CI-false}" = true ] ; then
 else
     PG_CREATE_USER=
 fi
-createuser -d -e ${PG_UUID} ${PG_CREATE_USER}
+psql -d postgres -c "CREATE USER \"${PG_UUID}\" WITH PASSWORD '${PG_UUID}' CREATEDB;"
 echo ${PG_UUID} > envs/dev/PGPASSWORD
 echo "postgres://${PG_UUID}:${PG_UUID}@localhost/${PG_UUID}" > envs/dev/DEFAULT_DATABASE_URL
 

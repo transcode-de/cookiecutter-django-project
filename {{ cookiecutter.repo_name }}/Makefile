@@ -90,7 +90,7 @@ create-db:
 	envdir envs/$(ENV) createdb -U {{ cookiecutter.repo_name }} -l en_US.utf-8 -E utf-8 -O {{ cookiecutter.repo_name }} -T template0 -e {{ cookiecutter.repo_name }}
 
 create-db-user:
-	envdir envs/$(ENV) createuser -d -e {{ cookiecutter.repo_name }}
+	psql -d postgres -c "CREATE USER \"{{ cookiecutter.repo_name }}\" WITH PASSWORD '{{ cookiecutter.repo_name }}' CREATEDB;"
 
 drop-db:
 	envdir envs/$(ENV) dropdb -i -e -U {{ cookiecutter.repo_name }} {{ cookiecutter.repo_name }}
