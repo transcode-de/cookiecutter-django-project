@@ -200,7 +200,6 @@ Development
 
 The default class for development is
 :py:class:`{{ cookiecutter.pkg_name }}.config.settings.dev.Development`.
-It uses `django-devserver <https://github.com/dcramer/django-devserver>`_.
 
 .. list-table::
     :header-rows: 1
@@ -219,25 +218,6 @@ It uses `django-devserver <https://github.com/dcramer/django-devserver>`_.
       - | A dictionary containing the
         | settings for all caches to be used
         | with Django.
-    * - ``DEVSERVER_ARGS``
-      - ``[]``
-      - ``DJANGO_DEVSERVER_ARGS``
-      - | Additional command line
-        | arguments to pass to the :command:`runserver`
-        | command (as defaults).
-        | Example environment value: ``--werkzeug``
-    * - ``DEVSERVER_MODULES``
-      - | ``['devserver.modules.sql.SQLRealTimeModule',``
-        | ``'devserver.modules.sql.SQLSummaryModule',``
-        | ``'devserver.modules.profile.ProfileSummaryModule',]``
-      - ``DJANGO_DEVSERVER_MODULES``
-      - | django-devserver modules. See
-        | `list of available modules <https://github.com/dcramer/django-devserver>`_.
-    * - ``DEVSERVER_TRUNCATE_SQL``
-      - ``True``
-      - ``DJANGO_DEVSERVER_TRUNCATE_SQL``
-      - | Enables SQL query truncation
-        | (used in ``SQLRealTimeModule``).
     * - ``EMAIL_BACKEND``
       - ``'django.core.mail.backends.console.EmailBackend'``
       - ``DJANGO_EMAIL_BACKEND``
