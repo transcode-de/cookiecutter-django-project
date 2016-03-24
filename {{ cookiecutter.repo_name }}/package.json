@@ -26,6 +26,8 @@
   "scripts": {
     "build-development": "webpack --progress --colors -d --config webpack.development.config.js",
     "build-production": "webpack --progress --colors --config webpack.production.config.js",
+    "standardjs": "standard",
+    "standardjs-format": "standard-format -w",
     "watch": "webpack --progress --colors --watch -d --config webpack.development.config.js"
   },
   "repository": {
