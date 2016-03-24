@@ -1,0 +1,6 @@
+{
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles-development/',
+        'STATS_FILE': './{{ cookiecutter.pkg_name }}/webpack-stats-development.json',
+    }
+}

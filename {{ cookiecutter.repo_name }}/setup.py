@@ -13,6 +13,21 @@ def read(*paths):
     with open(os.path.join(*paths), 'r', 'utf-8') as f:
         return f.read()
 
+requires = [
+    'Django==1.8.8',
+    'crispy-forms-foundation==0.5.3',
+    'dj-database-url==0.3.0',
+    'django-braces==1.8.1',
+    'django-configurations==1.0',
+    'django-crispy-forms==1.5.2',
+    'django-grappelli==2.7.2',
+    'django-model-utils==2.4',
+    'django-webpack-loader==0.2.4',
+    'envdir==0.7',
+    'psycopg2==2.6.1',
+    'pytz==2015.7',
+]
+
 extras_require = {
     'mailgun': [
         'django-mailgun==0.8.0',
@@ -21,19 +36,6 @@ extras_require = {
         'raven==5.8.1',
     ],
 }
-
-requires = [
-    'Django==1.8.7',
-    'dj-database-url==0.3.0',
-    'django-braces==1.8.1',
-    'django-configurations==1.0',
-    'django-crispy-forms==1.5.2',
-    'django-grappelli==2.7.2',
-    'django-model-utils==2.4',
-    'envdir==0.7',
-    'psycopg2==2.6.1',
-    'pytz==2015.7',
-]
 
 setup(
     name='{{ cookiecutter.pkg_name }}',
@@ -46,6 +48,7 @@ setup(
     include_package_data=True,
     scripts=['manage.py'],
     install_requires=requires,
+    extras_require=extras_require,
     license='{{ cookiecutter.license }}',
     zip_safe=False,
     classifiers=[

@@ -183,6 +183,8 @@ class Common(Configuration):
         'django.contrib.admin',
         'django.contrib.admindocs',
         'crispy_forms',
+        'crispy_forms_foundation',
+        'webpack_loader',
     )
 
     CACHES = values. DictValue({
@@ -191,7 +193,8 @@ class Common(Configuration):
         }
     })
 
-    CRISPY_TEMPLATE_PACK = values.Value('bootstrap3')
+    CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap', 'uni_form', 'bootstrap3', 'foundation-5')
+    CRISPY_TEMPLATE_PACK = values.Value('foundation-5')
 
     GRAPPELLI_ADMIN_TITLE = '{{ cookiecutter.project_name }} Admin'
 
@@ -200,3 +203,10 @@ class Common(Configuration):
     DEFAULT_FROM_EMAIL = values.EmailValue('{{ cookiecutter.email }}')
 
     SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+    WEBPACK_LOADER = values.DictValue({
+        'DEFAULT': {
+            'BUNDLE_DIR_NAME': 'bundles/',
+            'STATS_FILE': os.path.join(BaseDir.BASE_DIR, 'webpack-stats.json'),
+        }
+    })
