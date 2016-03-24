@@ -18,8 +18,8 @@ env:
   - TOXENV=project-tox-isort
   - TOXENV=project-tox-manifest
   - TOXENV=project-tox-pep257
-  - TOXENV=project-tox-py27
-  - TOXENV=project-tox-py35
+  - TOXENV=project-tox-py27-npm
+  - TOXENV=project-tox-py35-npm
   - TOXENV=py27-project-develop
   - TOXENV=py34-project-develop
   - TOXENV=py35-project-develop
