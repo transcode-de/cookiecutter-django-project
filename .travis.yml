@@ -18,11 +18,11 @@ env:
   - TOXENV=project-tox-isort
   - TOXENV=project-tox-manifest
   - TOXENV=project-tox-pep257
-  - TOXENV=project-tox-py27-npm
-  - TOXENV=project-tox-py35-npm
-  - TOXENV=py27-project-develop
-  - TOXENV=py34-project-develop
-  - TOXENV=py35-project-develop
+  - TOXENV=project-tox-py27-npm-link
+  - TOXENV=project-tox-py35-npm-link
+  - TOXENV=py27-project-develop-copy
+  - TOXENV=py34-project-develop-copy
+  - TOXENV=py35-project-develop-copy
 services:
   - postgresql
 addons:
