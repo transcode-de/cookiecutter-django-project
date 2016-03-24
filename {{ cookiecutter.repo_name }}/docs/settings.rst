@@ -20,7 +20,7 @@ Both together control which settings are loaded and used.
     * - ``DJANGO_CONFIGURATION``
       - ``'Development'``
       - ``DJANGO_CONFIGURATION``
-      - | Name of the `django-configurations <https://github.com/jezdez/django-configurations>`_
+      - | Name of the `django-configurations <https://github.com/jazzband/django-configurations>`_
         | class you want to use.
     * - ``DJANGO_SETTINGS_MODULE``
       - ``'{{ cookiecutter.pkg_name }}.config.settings.dev'``
