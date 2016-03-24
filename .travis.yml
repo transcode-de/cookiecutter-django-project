@@ -5,6 +5,7 @@ cache:
     - ~/.cache/pip
 install:
   - pip install -r requirements/ci.pip
+  - npm install
 env:
   - TOXENV=py27
   - TOXENV=py34
