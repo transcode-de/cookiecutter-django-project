@@ -12,7 +12,7 @@ bumpversion==0.5.3
 django-debug-toolbar==1.5
 django-template-debug==0.3.5
 envdir==0.7
-flake8==3.0.2
+flake8==3.0.3
 ipython==5.0.0
 isort==4.2.5
 # Newer versions of pdbpp do not work with Python 3
