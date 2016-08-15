@@ -20,7 +20,7 @@ class Sentry404(Raven):
 
     MIDDLEWARE_CLASSES = values.ListValue([
         'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
-    ]) + common.Common.MIDDLEWARE_CLASSES
+    ].append(common.Common.MIDDLEWARE_CLASSES))
 
 
 class Public(email.Email, databases.Databases, common.Common):

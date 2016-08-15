@@ -299,7 +299,7 @@ autodoc_default_flags = ['members', 'undoc-members']
 
 # django-configurations setup
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.pkg_name }}.config.settings.dev')
-os.environ.setdefault('DJANGO_CONFIGURATION', 'Dev')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'Development')
 
 from configurations import importer
 importer.install()
