@@ -54,7 +54,7 @@ Now create a file to define the configuration class to be used:
 
 ::
 
-    $ echo "Prod" > envs/prod/DJANGO_CONFIGURATION
+    $ echo "Production" > envs/prod/DJANGO_CONFIGURATION
 
 Then create the file for the ``DJANGO_SETTINGS_MODULE`` environment variable:
 
