@@ -83,9 +83,9 @@ cmd:
 	@echo "  cmd                       Please use 'make cmd=<manage.py command>'"
 
 compile-requirements:
-	pip install pip-tools==1.3.0
+	pip install pip-tools==1.7.0
+	rm -f requirements/*.pip
 	$(foreach file,$(files),pip-compile $(file) -o $(file:in=pip);)
-
 
 coverage:
 	envdir envs/$(ENV) coverage run -m pytest $(TEST_ARGS) tests/
