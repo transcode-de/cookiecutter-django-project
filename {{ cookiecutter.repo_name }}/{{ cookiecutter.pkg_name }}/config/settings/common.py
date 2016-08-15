@@ -23,6 +23,8 @@ class Common(Configuration):
 
     DEBUG = values.BooleanValue(False)
 
+    MAIL_ADMINS = values.BooleanValue(False)
+
     ADMINS = AdminsValue(
         (('{{ cookiecutter.author_name }}', '{{ cookiecutter.error_email }}'),)
     )
@@ -38,6 +40,9 @@ class Common(Configuration):
             'require_debug_true': {
                 '()': 'django.utils.log.RequireDebugTrue',
             },
+            'require_mail_admins_true': {
+                '()': '{{ cookiecutter.pkg_name }}.config.settings.log.RequireMailAdminsTrue',
+            },
         },
         'handlers': {
             'console': {
@@ -50,7 +55,7 @@ class Common(Configuration):
             },
             'mail_admins': {
                 'level': 'ERROR',
-                'filters': ['require_debug_false'],
+                'filters': ['require_debug_false', 'require_mail_admins_true'],
                 'class': 'django.utils.log.AdminEmailHandler'
             }
         },

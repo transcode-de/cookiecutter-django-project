@@ -1,7 +1,7 @@
 from . import common, databases
 
 
-class Test(databases.Databases, common.Common):
+class Testing(databases.Databases, common.Common):
     """Settings for running the test suite."""
 
     # Use a fast hasher to speed up tests.

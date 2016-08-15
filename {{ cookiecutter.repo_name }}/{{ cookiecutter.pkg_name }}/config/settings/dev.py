@@ -6,7 +6,7 @@ from configurations import values
 from . import common, databases
 
 
-class Dev(databases.Databases, common.Common):
+class Development(databases.Databases, common.Common):
     """Settings for development."""
 
     CACHES = values. DictValue({
