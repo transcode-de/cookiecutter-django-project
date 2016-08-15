@@ -1,5 +1,4 @@
 # This file is used for all packages required to build the documentation.
 
 Sphinx==1.3.3
-# until there is a new release we have to use the develop branch
-https://github.com/GaretJax/sphinx-autobuild/archive/345bea95ce247d2f606c2735d92d7101421012a6.zip
+sphinx-autobuild==0.6.0
