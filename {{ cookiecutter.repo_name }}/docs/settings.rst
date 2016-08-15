@@ -105,10 +105,6 @@ List of general Django settings from
       - | A string representing the
         | language code for this
         | installation.
-    * - ``MAIL_ADMINS``
-      - ``False``
-      - No
-      - | Enables sending mails to admins.
     * - ``MIDDLEWARE_CLASSES``
       - | ``['django.contrib.sessions.middleware.SessionMiddleware',``
         | ``'django.middleware.common.CommonMiddleware',``
