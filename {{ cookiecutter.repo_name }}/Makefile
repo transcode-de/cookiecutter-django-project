@@ -15,7 +15,7 @@ endef
 $(eval $(call CMDS, $(cmd)))
 
 .PHONY: help clean clean-build clean-docs clean-pyc clean-test cmd coverage coverage-html \
-    create-db develop docs isort migrate open-docs serve-docs runserver shell startapp test \
+    create-db develop docs isort livehtml migrate open-docs runserver shell startapp test \
     test-all test-upload upload
 
 help:
@@ -37,10 +37,10 @@ help:
 	@echo "  dist                     to package a release"
 	@echo "  docs                     to build the project documentation as HTML"
 	@echo "  isort                    to run isort on the whole project"
+	@echo "  livehtml                 to open documentation in browser and rebuild automatically"
 	@echo "  migrate                  to synchronize Django's database state with the current set of models and migrations"
 	@echo "  open-docs                to open the project documentation in the default browser"
 	@echo "  runserver                to start Django's development Web server"
-	@echo "  serve-docs               to serve the project documentation in the default browser"
 	@echo "  shell                    to start a Python interactive interpreter"
 	@echo "  startapp                 to create a new Django app"
 	@echo "  test                     to run unit tests quickly with the default Python"
@@ -113,6 +113,9 @@ docs:
 isort:
 	isort --recursive setup.py {{ cookiecutter.pkg_name }}/ tests/
 
+livehtml: docs
+	$(MAKE) -C docs livehtml BUILDDIR=$(BUILDDIR) SPHINXOPTS='$(SPHINXOPTS)'
+
 migrate:
 	envdir envs/$(ENV) python manage.py migrate
 
@@ -121,10 +124,6 @@ open-docs:
 
 runserver:
 	envdir envs/$(ENV) python manage.py runserver $(PORT)
-
-serve-docs:
-	python -c "import webbrowser; webbrowser.open('http://127.0.0.1:$(PORT)')"
-	cd docs/$(BUILDDIR)/html; python -m http.server $(PORT)
 
 shell:
 	envdir envs/$(ENV) python manage.py shell
