@@ -109,8 +109,12 @@ drop-db-user:
 
 develop:
 	pip install -U pip setuptools wheel
-	pip install -U -c requirements/constraints.pip -e .
-	pip install -U -c requirements/constraints.pip -r requirements/dev.pip
+	pip install -U -c requirements/constraints.in -e .
+	pip install -U -c requirements/constraints.in -r requirements/dev.pip
+	pip install -U -c requirements/constraints.in -r requirements/docs.pip
+	pip install -U -c requirements/constraints.in -r requirements/test.pip
+	pip install -U -c requirements/constraints.in -r requirements/test-local.pip
+	pip install -U -c requirements/constraints.in -r requirements/forks.pip
 
 dist: clean
 	python setup.py sdist bdist_wheel
