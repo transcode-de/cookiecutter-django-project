@@ -18,7 +18,7 @@ Both together control which settings are loaded and used.
       - Env Variable
       - Description
     * - ``DJANGO_CONFIGURATION``
-      - ``'Dev'``
+      - ``'Development'``
       - ``DJANGO_CONFIGURATION``
       - | Name of the `django-configurations <https://github.com/jezdez/django-configurations>`_
         | class you want to use.
@@ -105,6 +105,10 @@ List of general Django settings from
       - | A string representing the
         | language code for this
         | installation.
+    * - ``MAIL_ADMINS``
+      - ``False``
+      - No
+      - | Enables sending mails to admins.
     * - ``MIDDLEWARE_CLASSES``
       - | ``['django.contrib.sessions.middleware.SessionMiddleware',``
         | ``'django.middleware.common.CommonMiddleware',``
@@ -170,10 +174,10 @@ The database settings are in
 
 The following classes inherit from it:
 
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.dev.Dev`
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Prod`
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Stage`
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.test.Test`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.dev.Development`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Production`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Staging`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.test.Testing`
 
 .. list-table::
     :header-rows: 1
@@ -195,11 +199,11 @@ The following classes inherit from it:
       - | The lifetime of a database
         | connection, in seconds.
 
-Dev
-===
+Development
+===========
 
 The default class for development is
-:py:class:`{{ cookiecutter.pkg_name }}.config.settings.dev.Dev`.
+:py:class:`{{ cookiecutter.pkg_name }}.config.settings.dev.Development`.
 It uses `django-devserver <https://github.com/dcramer/django-devserver>`_.
 
 .. list-table::
@@ -352,8 +356,8 @@ The class
 :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Public`
 is the base class for the following classes:
 
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Prod`
-* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Stage`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Production`
+* :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Staging`
 
 .. list-table::
     :header-rows: 1
@@ -387,7 +391,7 @@ SSL
 Default settings for SSL-enabled servers. Inherit
 from :py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.SSL`
 to use these settings.
-:py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Prod`
+:py:class:`{{ cookiecutter.pkg_name }}.config.settings.public.Production`
 inherits from this class by default. Make sure you read
 :djangodocs:`Django's SSL <topics/security/#ssl-https>` documentation before
 using these settings.
