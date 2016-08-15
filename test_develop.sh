@@ -1,18 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# Set up a development environment and run the test suite.
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
 export PYTHONIOENCODING=UTF-8
 cd my-project
 
 # Set up the development environment
 make develop
 PG_UUID=`faker uuid4`
-if [ "$CI" = true ] ; then
-    PG_CREATE_USER="-U postgres"
-else
-    PG_CREATE_USER=
-fi
-createuser -d -e $PG_UUID $PG_CREATE_USER
-echo $PG_UUID > envs/dev/PGPASSWORD
-echo "postgres://$PG_UUID:$PG_UUID@localhost/$PG_UUID" > envs/dev/DEFAULT_DATABASE_URL
+psql -d postgres -c "CREATE USER \"${PG_UUID}\" WITH PASSWORD '${PG_UUID}' CREATEDB;"
+echo ${PG_UUID} > envs/dev/PGPASSWORD
+echo "postgres://${PG_UUID}:${PG_UUID}@localhost/${PG_UUID}" > envs/dev/DEFAULT_DATABASE_URL
 
 # Run the tests and collect coverage data
 cat >> tests/test_context_processors.py <<EOF
@@ -27,4 +29,4 @@ EOF
 make coverage
 
 # Clean up
-dropuser -e $PG_UUID
+dropuser -e ${PG_UUID}

@@ -64,13 +64,13 @@ class SSL(object):
     SESSION_COOKIE_SECURE = values.BooleanValue(True)
 
 
-class Stage(Public):
+class Staging(Public):
     """Settings for staging servers."""
 
     pass
 
 
-class Prod(Public, SSL):
+class Production(Public, SSL):
     """Settings for production servers."""
 
     pass
