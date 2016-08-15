@@ -11,7 +11,6 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
 
 import alabaster
@@ -30,6 +29,7 @@ needs_sphinx = '1.3'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
     'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
     'alabaster',
@@ -294,3 +294,13 @@ linkcheck_ignore = [
 extlinks = {
     'djangodocs': ('https://docs.djangoproject.com/en/1.8/%s', None)
 }
+
+autodoc_default_flags = ['members', 'undoc-members']
+
+# django-configurations setup
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.pkg_name }}.config.settings.dev')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'Development')
+
+from configurations import importer
+importer.install()
+
