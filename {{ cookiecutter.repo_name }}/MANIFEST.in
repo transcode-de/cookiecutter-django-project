@@ -6,6 +6,7 @@ include tox.ini
 
 exclude .bumpversion.cfg
 exclude .editorconfig
+exclude .pre-commit-config.yaml
 exclude pydocstyle.sh
 
 recursive-include docs *.rst .gitkeep conf.py Makefile make.bat
@@ -20,4 +21,6 @@ graft tests
 prune envs
 prune {{ cookiecutter.pkg_name }}/.cache
 prune {{ cookiecutter.pkg_name }}/media
+include {{ cookiecutter.pkg_name }}/media/.gitkeep
 prune {{ cookiecutter.pkg_name }}/static_root
+include {{ cookiecutter.pkg_name }}/static_root/.gitkeep
