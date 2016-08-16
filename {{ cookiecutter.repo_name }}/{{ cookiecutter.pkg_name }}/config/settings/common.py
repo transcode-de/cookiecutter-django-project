@@ -23,6 +23,8 @@ class Common(Configuration):
 
     DEBUG = values.BooleanValue(False)
 
+    MAIL_ADMINS = values.BooleanValue(False)
+
     ADMINS = AdminsValue(
         (('{{ cookiecutter.author_name }}', '{{ cookiecutter.error_email }}'),)
     )
@@ -50,7 +52,6 @@ class Common(Configuration):
             },
             'mail_admins': {
                 'level': 'ERROR',
-                'filters': ['require_debug_false'],
                 'class': 'django.utils.log.AdminEmailHandler'
             }
         },
@@ -78,13 +79,13 @@ class Common(Configuration):
         }
     }
 
-    ALLOWED_HOSTS = values.ListValue([])
+    ALLOWED_HOSTS = values.ListValue(['{{ cookiecutter.domain }}'])
 
-    SITE_ID = 1
+    SITE_ID = values.IntegerValue(1)
 
     # Internationalization
     # https://docs.djangoproject.com/en/dev/topics/i18n/
-    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = values.Value('en-us')
 
     TIME_ZONE = values.Value('Europe/Berlin')
 
@@ -101,7 +102,7 @@ class Common(Configuration):
     # URL that handles the media served from MEDIA_ROOT. Make sure to use a
     # trailing slash.
     # Examples: "http://example.com/media/", "http://media.example.com/"
-    MEDIA_URL = '/media/'
+    MEDIA_URL = values.Value('/media/')
 
     # Absolute path to the directory static files should be collected to.
     # Don't put anything in this directory yourself; store your static files
@@ -111,7 +112,7 @@ class Common(Configuration):
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/dev/howto/static-files/
-    STATIC_URL = '/static/'
+    STATIC_URL = values.Value('/static/')
 
     # Additional locations of static files
     STATICFILES_DIRS = (
@@ -121,13 +122,13 @@ class Common(Configuration):
         os.path.join(BaseDir.BASE_DIR, 'static'),
     )
 
-    STATICFILES_FINDERS = (
+    STATICFILES_FINDERS = values.ListValue([
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
         'django.contrib.staticfiles.finders.FileSystemFinder',
         #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    )
+    ])
 
-    MIDDLEWARE_CLASSES = (
+    MIDDLEWARE_CLASSES = values.ListValue([
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,7 +137,7 @@ class Common(Configuration):
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
         'django.middleware.security.SecurityMiddleware',
-    )
+    ])
 
     ROOT_URLCONF = '{{ cookiecutter.pkg_name }}.config.urls'
 
@@ -155,12 +156,16 @@ class Common(Configuration):
                     'django.contrib.messages.context_processors.messages',
                     '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
-                'debug': values.BooleanValue(False,
-                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'),
+                'debug': values.BooleanValue(
+                    False,
+                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'
+                ),
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                'string_if_invalid': values.Value('',
-                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'),
+                'string_if_invalid': values.Value(
+                    '',
+                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'
+                ),
             },
         },
     ]
@@ -183,12 +188,21 @@ class Common(Configuration):
         'django.contrib.admin',
         'django.contrib.admindocs',
         'crispy_forms',
+        'rules.apps.AutodiscoverRulesConfig',
     )
 
-    CRISPY_TEMPLATE_PACK = 'bootstrap3'
+    CACHES = values. DictValue({
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    })
+
+    CRISPY_TEMPLATE_PACK = values.Value('bootstrap3')
 
     GRAPPELLI_ADMIN_TITLE = '{{ cookiecutter.project_name }} Admin'
 
     EMAIL_SUBJECT_PREFIX = '[{{ cookiecutter.project_name }}]'
+
     DEFAULT_FROM_EMAIL = values.EmailValue('{{ cookiecutter.email }}')
+
     SERVER_EMAIL = DEFAULT_FROM_EMAIL

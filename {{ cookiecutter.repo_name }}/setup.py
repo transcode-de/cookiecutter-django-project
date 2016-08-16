@@ -26,15 +26,14 @@ requires = [
     'Django==1.8.7',
     'dj-database-url==0.3.0',
     'django-braces==1.8.1',
-    # django-configurations 0.8 does not work with Django 1.8. A fork has been
-    # added to requirements/forks.pip that supports Django 1.8.
-    # 'django-configurations==0.8',
+    'django-configurations==1.0',
     'django-crispy-forms==1.5.2',
     'django-grappelli==2.7.2',
     'django-model-utils==2.4',
     'envdir==0.7',
     'psycopg2==2.6.1',
     'pytz==2015.7',
+    'rules==1.1.1',
 ]
 
 setup(

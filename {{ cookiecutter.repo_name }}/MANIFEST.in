@@ -20,4 +20,6 @@ graft tests
 prune envs
 prune {{ cookiecutter.pkg_name }}/.cache
 prune {{ cookiecutter.pkg_name }}/media
+include {{ cookiecutter.pkg_name }}/media/.gitkeep
 prune {{ cookiecutter.pkg_name }}/static_root
+include {{ cookiecutter.pkg_name }}/static_root/.gitkeep
