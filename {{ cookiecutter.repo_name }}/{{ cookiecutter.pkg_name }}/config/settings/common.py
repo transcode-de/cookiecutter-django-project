@@ -40,9 +40,6 @@ class Common(Configuration):
             'require_debug_true': {
                 '()': 'django.utils.log.RequireDebugTrue',
             },
-            'require_mail_admins_true': {
-                '()': '{{ cookiecutter.pkg_name }}.config.settings.log.RequireMailAdminsTrue',
-            },
         },
         'handlers': {
             'console': {
@@ -55,7 +52,6 @@ class Common(Configuration):
             },
             'mail_admins': {
                 'level': 'ERROR',
-                'filters': ['require_debug_false', 'require_mail_admins_true'],
                 'class': 'django.utils.log.AdminEmailHandler'
             }
         },
@@ -160,12 +156,16 @@ class Common(Configuration):
                     'django.contrib.messages.context_processors.messages',
                     '{{ cookiecutter.pkg_name }}.context_processors.django_version',
                 ],
-                'debug': values.BooleanValue(False,
-                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'),
+                'debug': values.BooleanValue(
+                    False,
+                    environ_name='DJANGO_TEMPLATES_TEMPLATE_DEBUG'
+                ),
                 # Beware before activating this! Grappelli has problems with admin
                 # inlines and the template backend option 'string_if_invalid'.
-                'string_if_invalid': values.Value('',
-                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'),
+                'string_if_invalid': values.Value(
+                    '',
+                    environ_name='DJANGO_TEMPLATES_STRING_IF_INVALID'
+                ),
             },
         },
     ]
@@ -188,6 +188,7 @@ class Common(Configuration):
         'django.contrib.admin',
         'django.contrib.admindocs',
         'crispy_forms',
+        'rules.apps.AutodiscoverRulesConfig',
     )
 
     CACHES = values. DictValue({
