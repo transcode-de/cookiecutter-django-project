@@ -85,7 +85,7 @@ cmd:
 compile-requirements:
 	pip install pip-tools==1.7.0
 	rm -f requirements/*.pip
-	$(foreach file,$(files),pip-compile $(file) -o $(file:in=pip);)
+	$(foreach file,$(files),pip-compile --annotate $(file) -o $(file:in=pip);)
 
 coverage:
 	envdir envs/$(ENV) coverage run -m pytest $(TEST_ARGS) tests/
