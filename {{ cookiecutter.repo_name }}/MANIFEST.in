@@ -6,6 +6,7 @@ include tox.ini
 
 exclude .bumpversion.cfg
 exclude .editorconfig
+exclude .pre-commit-config.yaml
 exclude pep257.sh
 
 recursive-include docs *.rst .gitkeep conf.py Makefile make.bat
