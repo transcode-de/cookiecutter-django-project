@@ -1,4 +1,4 @@
 # This file is used for all packages required to build the documentation.
 
-Sphinx==1.4.6
+Sphinx==1.4.7
 sphinx-autobuild==0.6.0
