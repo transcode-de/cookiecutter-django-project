@@ -1,4 +1,4 @@
 # This file is used for all packages required for local development.
 
-cookiecutter==1.5.0
+cookiecutter==1.5.1
 isort==4.2.5
